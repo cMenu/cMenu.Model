@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="952c5de3-316e-4855-a998-46ac52c776d7" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="eca5f3c2-6cc5-477e-a7d1-b46a8c684f75" name="Comment1">
+      <body>При поступлении запроса на "сервер" он обрабатывается компонентой взамодействия.
+Данная компонента может быть использована для взаимодействия с внешними сервисами, получения данных, отправки уведомления и т.д.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="0032394b-c723-4031-a444-a99accc7fe56" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="0032394b-c723-4031-a444-a99accc7fe56" name="Server">
+      <childLayers>
+        <layer Id="4edaa207-0bc9-452a-99da-2bfa1aa06ccc" name="Communication component">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="1c4dd563-4db9-40a1-a7d5-f534c7d62f73" direction="Bidirectional">
+              <layerMoniker Id="6cdf4247-8f55-498a-bbd8-f19345c22256" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="eff290a5-c24e-48d2-9b8f-8c204207d246" name="Query">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="72e46e79-21e9-4fe4-907d-fe56f6d2ee2a" direction="Bidirectional">
+          <layerMoniker Id="4edaa207-0bc9-452a-99da-2bfa1aa06ccc" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="6cdf4247-8f55-498a-bbd8-f19345c22256" name="Internet" />
+    <layer Id="82e06e5c-53a2-4ae1-b056-1224605e4925" name="Notification Application">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="bcecc2d6-3102-4f28-bd85-687af95978af" direction="Bidirectional">
+          <layerMoniker Id="4edaa207-0bc9-452a-99da-2bfa1aa06ccc" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

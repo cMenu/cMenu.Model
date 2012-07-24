@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="74108fab-c067-47eb-9e19-28eefa90bd40" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="a67c2473-c300-4cb7-a6ed-71da3c9400da" name="Comment1">
+      <body>Посредством использоваения компоненты взаимодействия с БД, любая функция "сервера" может общаться с удаленной БД.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="5a78a998-719c-47ab-9b47-d255bba88745" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="5a78a998-719c-47ab-9b47-d255bba88745" name="Server">
+      <childLayers>
+        <layer Id="4e9a4882-b09b-4549-b09a-f1d127846c0a" name="DB Communication component" />
+      </childLayers>
+    </layer>
+    <layer Id="02a1ce6b-45fd-4ba0-89fb-9cf896c8db57" name="Database">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="78e80cf0-b859-434c-9955-b5d9e49803ae" direction="Bidirectional">
+          <layerMoniker Id="4e9a4882-b09b-4549-b09a-f1d127846c0a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

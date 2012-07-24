@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ef654e56-ff42-45db-b293-db41bb458f00" name="Server.Functions.CallOfficiant" linkedPackageId="ad3df8c9-1e9e-4f1d-9028-3d9e95f4fa9f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="d5ff483f-8a51-4e21-a8f8-c7a44f82a8ed">
+      <elementDefinition Id="d8c58420-2989-4327-8a10-c991f3593234" />
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="ba012469-4215-43ce-abd1-88e58e88046c" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="04ea5c19-8238-4c4d-8604-00c75fa54a81" name="Server.Functions.CallOfficiant" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="8dd634d0-db1f-43bf-aea9-2e2481c0d691" />
+        <nodes>
+          <initialNode Id="0662d7a8-c23e-4af4-a106-f210b6a94a38" name="Initial1" isLeaf="false">
+            <elementDefinition Id="efe8d5f3-685c-4cb3-a457-6c79a5dd13bf" />
+            <flowNodeTargets>
+              <controlFlow Id="088cc767-b5bf-4d58-9816-e17fb9dba34b" isLeaf="false">
+                <opaqueActionMoniker Id="ba012469-4215-43ce-abd1-88e58e88046c" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+                <elementDefinition Id="83b585d2-067a-4125-ad94-a69d2a404fcb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="ba012469-4215-43ce-abd1-88e58e88046c" name="ExecuteFunction(string FunctionID, object[] Params)" isLeaf="false">
+            <elementDefinition Id="ba6eae5d-521d-4e4f-88c5-6b9389124b40" />
+            <flowNodeTargets>
+              <controlFlow Id="99278208-036e-4345-9a6d-eeb7428ac1db" isLeaf="false">
+                <opaqueActionMoniker Id="5e67b36a-e5b8-449a-b7a1-03f561f90e4e" LastKnownName="Проинформировать при необходимости доступные Notification Applications" />
+                <elementDefinition Id="827f9250-47dd-40f2-b862-e05bb196cd78" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="46b9383f-1c5d-46fd-968a-23b67479812d" name="Join112" isLeaf="false">
+            <elementDefinition Id="6345b54e-0600-4913-89b6-64f15358c2c4" />
+            <flowNodeTargets>
+              <controlFlow Id="db7b55ac-8bcb-490a-8a7d-6d6b1d06c922" isLeaf="false">
+                <opaqueActionMoniker Id="106cf9bb-d473-4e58-af8d-233cad5e01cd" LastKnownName="Сформировать ответ клиенту" />
+                <elementDefinition Id="9fb88cea-f251-4390-94d8-92c3d990aea7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="106cf9bb-d473-4e58-af8d-233cad5e01cd" name="Сформировать ответ клиенту" isLeaf="false">
+            <elementDefinition Id="43a66a42-e681-43be-9507-bb5da5a8d2e0" />
+            <flowNodeTargets>
+              <controlFlow Id="6bf277ce-2b42-470d-affb-9d61c7c2ab9c" isLeaf="false">
+                <activityFinalNodeMoniker Id="98b891ec-654a-4746-ad73-78ff0f128537" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="bca530e2-8208-473c-b339-50cb8d449582" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="98b891ec-654a-4746-ad73-78ff0f128537" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="b9df1d2e-194c-47fa-bb74-b2b4a591bf2d" />
+          </activityFinalNode>
+          <opaqueAction Id="5e67b36a-e5b8-449a-b7a1-03f561f90e4e" name="Проинформировать при необходимости доступные Notification Applications" isLeaf="false">
+            <elementDefinition Id="0f66cce0-e53d-4485-a90a-50dd4a9e8216" />
+            <flowNodeTargets>
+              <controlFlow Id="7b1f9acb-2063-4419-b18d-e82869b101fd" isLeaf="false">
+                <joinNodeMoniker Id="46b9383f-1c5d-46fd-968a-23b67479812d" LastKnownName="Join112" />
+                <elementDefinition Id="c2f48e90-0d4e-4b5d-a09e-65ab207418e1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="ad3df8c9-1e9e-4f1d-9028-3d9e95f4fa9f" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="7d0d9701-5adc-4c71-aaaa-6766d2064522">
+        <profileInstance Id="cf8b82ec-6f64-4f8f-ab08-af7c5b6059f3" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="df5810e4-4d2e-4c29-80f7-37d9f5f57d78">
+        <profileInstance Id="72e04de4-18f9-4220-9dfc-e9139831787b" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

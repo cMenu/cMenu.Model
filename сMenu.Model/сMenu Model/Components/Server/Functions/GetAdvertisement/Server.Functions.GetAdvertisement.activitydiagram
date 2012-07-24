@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1f6db58d-df83-4ad4-ad72-1a19ca28aba8" name="Server.Functions.GetAdvertisement" linkedPackageId="3b6fdd82-a01e-4552-9dfa-c376a35fc2c4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="aaf4c19b-7386-47fc-abff-4f5b29b0197b">
+      <elementDefinition Id="f4fd4369-d066-4000-80db-8bf36d81c39a" />
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="57b6551e-2f02-49f1-a70c-420a6ed4bef9" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="0c212147-a8de-4bfb-894f-b5c9971e6477" name="Server.Functions.GetAdvertisement" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="4c0f6c03-36c7-48c1-ae6e-49a7afb3f7b4" />
+        <nodes>
+          <initialNode Id="bce90c8a-e8f9-4e6b-9799-7244c85c9cd3" name="Initial1" isLeaf="false">
+            <elementDefinition Id="c2f0d7f7-41b2-42c3-9778-485620afb9f1" />
+            <flowNodeTargets>
+              <controlFlow Id="e2ac60c0-83d2-40fd-b1ce-35265829f3af" isLeaf="false">
+                <opaqueActionMoniker Id="57b6551e-2f02-49f1-a70c-420a6ed4bef9" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+                <elementDefinition Id="02d3396a-bbb8-44bc-af5e-0b83da12d75c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="57b6551e-2f02-49f1-a70c-420a6ed4bef9" name="ExecuteFunction(string FunctionID, object[] Params)" isLeaf="false">
+            <elementDefinition Id="9ef7e260-b177-4c11-8693-06f664c8a77c" />
+            <flowNodeTargets>
+              <controlFlow Id="3104943e-614c-45ed-99b7-1f6988359f7f" isLeaf="false">
+                <opaqueActionMoniker Id="34e6dffd-0f0a-4be5-9ebf-9c51ef04a385" LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов" />
+                <elementDefinition Id="16523693-3786-4630-91c6-125317358c42" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="4875b491-97e2-4a2b-b6b0-68d19b7e187d" name="Найти объект типа &quot;Advertisement&quot; с заданным ID (ключом)" isLeaf="false">
+            <elementDefinition Id="adbe7646-3d3b-4935-892f-3aa38205ec13" />
+            <flowNodeTargets>
+              <controlFlow Id="7411ab27-0ad2-4324-bba2-590f8181f2b6" isLeaf="false">
+                <decisionNodeMoniker Id="ae36bbd8-4cb9-43ff-b8e3-05f581935d81" LastKnownName="Найдена?1" />
+                <elementDefinition Id="716eea46-203a-494f-b12d-94b43d7fa28b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="ae36bbd8-4cb9-43ff-b8e3-05f581935d81" name="Найдена?1" isLeaf="false">
+            <description>Найдена?</description>
+            <elementDefinition Id="09016c10-2b5f-48cb-b3d2-7cc472d389f0" />
+            <flowNodeTargets>
+              <controlFlow Id="f4baa317-5ad9-4872-aa9c-93739bdb6ce0" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="69890172-4a79-4207-83ef-75428fd70570" LastKnownName="Join11" />
+                <elementDefinition Id="01d14330-367a-4597-90f3-d0dfb7b4dadd" />
+              </controlFlow>
+              <controlFlow Id="97cd31f5-b5b2-4c33-a1ec-829bc7185fc8" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="0c04925b-67ec-4a09-98df-a66568837301" LastKnownName="Получить данные об объекте в соответствии с параметрами" />
+                <elementDefinition Id="19d1920a-988d-420a-8a9e-270d4180c689" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode Id="69890172-4a79-4207-83ef-75428fd70570" name="Join11" isLeaf="false">
+            <elementDefinition Id="5a859ae1-c660-4b52-a91b-18c4924015be" />
+            <flowNodeTargets>
+              <controlFlow Id="c74e73be-30ef-46f0-a5d7-dea890483c44" isLeaf="false">
+                <opaqueActionMoniker Id="2bcc4f4f-e007-4021-a44a-d23cc18e4abd" LastKnownName="Сформировать отчет об ошибке" />
+                <elementDefinition Id="998658f5-30fb-4512-9fa3-424e03f71fbf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="2bcc4f4f-e007-4021-a44a-d23cc18e4abd" name="Сформировать отчет об ошибке" isLeaf="false">
+            <elementDefinition Id="6293a1e5-6bf5-42f3-8839-508688848bec" />
+            <flowNodeTargets>
+              <controlFlow Id="73b18d03-6ea6-4ccb-8961-9da46157532e" isLeaf="false">
+                <joinNodeMoniker Id="bf1a9aa9-964c-493f-8503-5a6b514ca785" LastKnownName="Join112" />
+                <elementDefinition Id="c303684e-363f-4c66-8991-1449138336d8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="bf1a9aa9-964c-493f-8503-5a6b514ca785" name="Join112" isLeaf="false">
+            <elementDefinition Id="c24a5222-f876-48c4-a48d-4dfdee02bf05" />
+            <flowNodeTargets>
+              <controlFlow Id="41fe5fc4-201d-4d47-adbb-56410450a677" isLeaf="false">
+                <opaqueActionMoniker Id="efadffb9-cd7a-4fcf-b0cc-4272788c2736" LastKnownName="Сформировать ответ клиенту" />
+                <elementDefinition Id="e1e20149-9322-4179-84e1-cde47c178bf8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="efadffb9-cd7a-4fcf-b0cc-4272788c2736" name="Сформировать ответ клиенту" isLeaf="false">
+            <elementDefinition Id="f664747d-0b12-40b7-aa53-6138d1f5aabf" />
+            <flowNodeTargets>
+              <controlFlow Id="d44c22b3-68e1-49ce-b675-d4806252144a" isLeaf="false">
+                <activityFinalNodeMoniker Id="83b12cf2-bd02-4346-aa4e-91ccdec79e20" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="e7bf4589-50b6-4133-aba6-f93ba1a09c5c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="83b12cf2-bd02-4346-aa4e-91ccdec79e20" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="fd24cc2a-fe1d-4807-a4da-7faed32b2886" />
+          </activityFinalNode>
+          <opaqueAction Id="0c04925b-67ec-4a09-98df-a66568837301" name="Получить данные об объекте в соответствии с параметрами" isLeaf="false">
+            <elementDefinition Id="87a0b225-a66c-4b9c-9a68-d40d84494afb" />
+            <flowNodeTargets>
+              <controlFlow Id="bbf1d457-1f42-44fd-ae53-a9f596660cea" isLeaf="false">
+                <opaqueActionMoniker Id="df2774a7-777b-4904-b305-d94d160df789" LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр" />
+                <elementDefinition Id="cf86baac-51e1-4245-b6d4-5d5b29cf9460" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="34e6dffd-0f0a-4be5-9ebf-9c51ef04a385" name="Определить, имеет ли право пользователь на просмотр списка метаобъектов" isLeaf="false">
+            <elementDefinition Id="78d198c1-0843-4e00-93d0-b1cb68622faa" />
+            <flowNodeTargets>
+              <controlFlow Id="dd5a35ae-8646-4a01-b9e2-27057987b4b2" isLeaf="false">
+                <decisionNodeMoniker Id="52026917-66ad-4080-bd60-0f8b43f0f403" LastKnownName="Найдена?111" />
+                <elementDefinition Id="17998510-c306-425f-9367-e29e19bd88a5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="df2774a7-777b-4904-b305-d94d160df789" name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр" isLeaf="false">
+            <elementDefinition Id="2760afd5-68d0-4632-8c8e-63d480471da5" />
+            <flowNodeTargets>
+              <controlFlow Id="52fd9fb2-e962-4698-9d3b-f65c109dff73" isLeaf="false">
+                <joinNodeMoniker Id="bf1a9aa9-964c-493f-8503-5a6b514ca785" LastKnownName="Join112" />
+                <elementDefinition Id="1c5f4063-fe34-4afd-a6a3-b8979734673c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="52026917-66ad-4080-bd60-0f8b43f0f403" name="Найдена?111" isLeaf="false">
+            <description>Найдена?</description>
+            <elementDefinition Id="b664307b-9291-4eab-9b0f-2c69ea2f0276" />
+            <flowNodeTargets>
+              <controlFlow Id="c179b6eb-f389-4830-b82e-e658505d6eab" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="69890172-4a79-4207-83ef-75428fd70570" LastKnownName="Join11" />
+                <elementDefinition Id="21be67f5-f3d2-468b-8b79-779fd2b46e68" />
+              </controlFlow>
+              <controlFlow Id="6473d5c7-fcbf-478e-a0a4-ac7d33d404a2" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="4875b491-97e2-4a2b-b6b0-68d19b7e187d" LastKnownName="Найти объект типа &quot;Advertisement&quot; с заданным ID (ключом)" />
+                <elementDefinition Id="3bab54fe-c587-4d39-a151-e4d1bc734cf3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="3b6fdd82-a01e-4552-9dfa-c376a35fc2c4" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="75bb6f1e-31e8-4704-8779-d7ee9d83c6c2">
+        <profileInstance Id="b9836a0d-8c1e-4b3a-8066-0252cd7e0170" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7338b33f-15fc-4ce8-81dd-baf54532e27d">
+        <profileInstance Id="251908dd-c7fd-4cdb-87b6-66239d062431" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

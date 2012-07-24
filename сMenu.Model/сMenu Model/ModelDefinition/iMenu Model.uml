@@ -1,0 +1,4201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="efc5048a-5479-4d8f-ba5c-d81b10a32906"
+  name="iMenu Model" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="d085ace0-1278-48ee-a19a-b3a95f441a3c">
+      <body>Взаимодействие между "клиентом" и "сервером" происходит по схеме "запрос-ответ":
+0. Аутентификация клиента
+1. Посылка асинхронного запроса на сервер.
+2. Ожидание результата запроса.
+3. Обработка результата запроса.
+
+Запрос посылается в формате, определенным "сервером".
+Ответ "сервера" передается в формате JSON/XML (JSON предпочтительнее).
+
+</body>
+      <annotatedElements>
+        <objectNodeMoniker
+          Id="929a765a-1904-49a7-b1e9-03b4a2e382b8"
+          LastKnownName="Server"
+          LastKnownLocation="iMenu Model.uml" />
+        <objectNodeMoniker
+          Id="37bde678-3fec-4980-99b3-fb093b1f5bbb"
+          LastKnownName="Client"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="705d4a96-ec55-4fcc-b82d-52b22b1e662b">
+      <body>Функции "сервера" могут быть двух типов:
+0. Встроенные. Встроенные функции являются обязательными, их функционал вшит в ядро приложения и не может быть изменен.
+1. Сторонние. Сторонние функции могут содержаться во внешних модулях, библиотеках, написанных под платформу, на которой работает сам "сервер".
+
+Сторонние функции могут храниться как непосредстенно в БД, так и в файловой системе серверного компьютера.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="4a59ceb6-3c1d-4f02-a77d-a73d043c01c3"
+          LastKnownName="CServerFunction"
+          LastKnownLocation="Package1_2001.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="8f888f86-5829-43d5-b6d2-7e7ec8e84181">
+      <body>Серверный пользователь представляет собой объект, который, в зависимости от типа, может:
+0. Просматривать/редактировать иерархию серверных пользователей.
+1. Просматривать/редактивароть права серверных пользователей.
+2. Просматривать/редактировать меню.
+3. Просматривать/редактировать список клиентских устройств.
+4. Производить аутентификацию клиентских устройств.
+5. ...
+</body>
+      <annotatedElements>
+        <classMoniker
+          Id="44edfd55-d7fe-4e6d-84a8-8f497302834c"
+          LastKnownName="CServerUser"
+          LastKnownLocation="Package1_2001.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="27b7288a-9ced-40d1-80ac-a79ad46e8c3b">
+      <body>Клиентское устройство представляет собой конечный клиентский модуль одного из типов:
+0. Серверная система администрирования.
+1. Клиентские устройства: планшеты, телефоны и т.д.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="b8b6b106-d724-4e2f-8c01-30e3360f315f"
+          LastKnownName="CClientDevice"
+          LastKnownLocation="Package1_2001.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="32f9f357-112a-4a72-8386-e7c1672ec541">
+      <body>Вся статистика, собираемая во время выполнения функций на "сервере".</body>
+      <annotatedElements>
+        <classMoniker
+          Id="21f4086f-248f-44ab-85f9-159d320f954d"
+          LastKnownName="CServerStatistics"
+          LastKnownLocation="Package_1806.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="40b6ad3a-242e-4541-881e-66b7d70a9bdc">
+      <body>Данный компонент является средой выполнения функции на "сервере". Обеспечивает доступ функции к другим модулями и функциям "сервера":
+0. Доступ к БД.
+1. Доступ к сети.
+2. Доступ к статистике.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="5e4c415a-ec68-4efb-afd6-1456fb1fba22"
+          LastKnownName="CFunctionExecutionEnv"
+          LastKnownLocation="Package_1233.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="a258bc06-1959-43d0-85d7-2af34760a370">
+      <body>Интерфейс обеспечивает универсальный доступ к БД.</body>
+      <annotatedElements>
+        <interfaceMoniker
+          Id="75bb5f55-2f98-4a18-8ea3-ae4d23f8cb3b"
+          LastKnownName="IDatabaseProvider"
+          LastKnownLocation="Package_1233.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="7d25cf42-f284-4a47-a4c4-de1e3107b7ca">
+      <body>Обеспечитвает универсальный доступ к внешним ресурсам, обеспечивает связь с Notification Application.</body>
+      <annotatedElements>
+        <interfaceMoniker
+          Id="2046ccc2-09a3-4564-8abd-4e9d60eae1f0"
+          LastKnownName="INetworkProvider"
+          LastKnownLocation="Package_1233.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="2e5d24b7-37d3-4146-b67a-707d7d98cb57">
+      <body>Обеспечивает доступ к статистике сервера
+</body>
+      <annotatedElements>
+        <interfaceMoniker
+          Id="d6840aca-57aa-4029-ab30-a5fd32d10d48"
+          LastKnownName="IStatisticsProvider"
+          LastKnownLocation="Package_1233.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="0aed61d1-a94f-4017-82f8-6129557ec724">
+      <body>Администрирование системы:
+0. Управление списком пользователей.
+1. Управление списом устройств
+2. Управление правами доступа.
+3. Управление списками Notification Application.
+4. Управление списками принтеров.
+5. ...</body>
+      <annotatedElements>
+        <classMoniker
+          Id="92b037ff-ad1a-41d1-8cce-c37cefce7cc9"
+          LastKnownName="CAdministration"
+          LastKnownLocation="Package_1826.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="7fc8b43b-b1d9-42ef-bd60-c0ae313a4695">
+      <body>Обязательными параметрами, которые должны передаваться в переменную Parameters, являются:
+0. ID вызываемой функции.
+1. ID устройства, с которого вызывается функция.
+2. Ключ аутентификации устройства.
+3. MAC Address - MAC адрес устройства, с коротого производится выполнение функции.</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="232ed575-d639-43ee-bc13-7bf69a040855"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Parameters)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="82305c41-8b07-478f-a18b-34003adc7318">
+      <body>При создании нового устройства:
+0. Длительность сессии ограничивается. Ограничение может быть установлено вручную, либо автоматически.
+1. В ответ кроме ключа аутентификации помещается ID нового устройства.
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="440df369-b8e4-422e-ae3a-790ed0796306"
+          LastKnownName="Создать новое устройство"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="f311521c-3b6d-4236-8f5e-2eba1986098d">
+      <body>При нахождении уже существующего устройства:
+0. Длительность сессии по умолчанию неограничена, но может быть выставлена вручную.
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="5945936a-813c-46be-9c1a-dde3917b662d"
+          LastKnownName="Найти устройство"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="e9b634d1-5b28-44cb-bc61-e44405d330bc">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_LOGIN - логин пользователя, под которым осуществляется вход в систему.
+1. PARAM_PASSWORD - пароль пользователя, под которым осуществляется вход в систему.
+2. PARAM_DEVICE_TYPE - тип устройства (Внешнее - новое, принесенное клиентом устройство. Внутренее - постоянно находящееся на рабочем месте).
+3. PARAM_DEVICE_MAC - MAC адрес устройства, с коротого производится вход.
+4. PARAM_SESSION_DEADLINE - дата окончания сессии (если необходимо).
+5. PARAM_DEVICE_NAME - имя устройства (если необходимо).</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="16506689-c6c2-4ccb-bf74-ba8b90dcf70c"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b0317496-ef87-41f7-a4bb-ab33150ae2ba">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_ORDER - объект типа "Order", сериализованный в формате JSON (XML).
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="f21c39b5-3e27-4153-9e4c-d247be7cfdcf"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="90577f15-15b9-4b7c-af9c-c5bfa874ae25">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Order".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Order".
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="a942869e-2ead-4cc5-aa0a-b66d5259e9f9"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="f4fd4369-d066-4000-80db-8bf36d81c39a">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="9ef7e260-b177-4c11-8693-06f664c8a77c"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="7f05ae6a-63c1-4d11-b222-08aeef8f3819">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="6833b9a5-969a-4a80-9ef0-6345969f9260"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="ad9fa4dd-7eac-4de9-9588-effc64489605">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="58f59ce2-6c24-4f7b-83a6-4fca95a59004"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="d8c58420-2989-4327-8a10-c991f3593234">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="ba6eae5d-521d-4e4f-88c5-6b9389124b40"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="343a48af-8c7b-473f-a3ac-91f537920bf8">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="6aa42a02-e9b7-4e98-bc32-511b1288af68"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="d6bce5d2-9333-4dba-abd8-c53d5a14a98c">
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_OBJECT_ID - ID объекта типа "Advertisement".
+4. PARAM_OBJECT_KEY - ключ объекта типа "Advertisement".
+5. PARAM_GET_CHILDREN - получать ли полные данные об объекте.
+6. PARAM_GET_RECURSIVE - получать ли данные о дочерних объектах рекурсивно.
+7. PARAM_GET_SOURCE_LINKS - получать ли ссылки, в которых объект является источником.
+8. PARAM_GET_DEST_LINKS - получать ли ссылки, в которых объект является связанным.
+9. PARAM_GET_ATTRIBUTES - получать ли атрибуты объекта.
+10. PARAM_GET_MEDIA - получать ли медиа ресурсы, связанные с объектом
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="492925c7-205e-4519-9006-5e7012cc2dec"
+          LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+          LastKnownLocation="iMenu Model.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="36a05c08-793a-44d8-bd69-58a7272f4f9a"
+        name="Interaction.Main"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <objectNode
+            Id="929a765a-1904-49a7-b1e9-03b4a2e382b8"
+            name="Server"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="5f2a57de-ebf0-4c3f-82e2-feef759503fb"
+                LastKnownName="CServer"
+                LastKnownLocation="Package1_2001.uml" />
+            </type_NamedElement>
+            <objectFlowTargets>
+              <objectFlow
+                Id="99623fa1-9300-4568-880d-172631766f58"
+                name="Answer"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <objectNodeMoniker
+                  Id="37bde678-3fec-4980-99b3-fb093b1f5bbb"
+                  LastKnownName="Client"
+                  LastKnownLocation="iMenu Model.uml" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger
+                Id="ba9d1666-5ee2-4fea-9309-d2d972f8f928"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+          <objectNode
+            Id="37bde678-3fec-4980-99b3-fb093b1f5bbb"
+            name="Client"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <objectFlowTargets>
+              <objectFlow
+                Id="eb6af071-a8e4-4825-be7b-1a7d7024a1a3"
+                name="Query"
+                isLeaf="false"
+                isMulticast="false"
+                isMultireceive="false">
+                <objectNodeMoniker
+                  Id="929a765a-1904-49a7-b1e9-03b4a2e382b8"
+                  LastKnownName="Server"
+                  LastKnownLocation="iMenu Model.uml" />
+                <description>Запрос</description>
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger
+                Id="e3e9b6d3-9728-4558-9342-f165f1ee44c9"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </objectNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="8197d7b7-4812-4ced-8de6-cd7304e37e03"
+        name="Interaction.Authentication"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <messageOccurrenceSpecification
+            Id="3b07d3c7-e36c-4b3f-9039-e48f8d29bfbb"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1310cdc7-6de6-4b6f-8cc8-c624aed0e695"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cbc8b5c5-db5a-4056-8436-e773b899a43f"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="9bad5be3-52f2-4605-bf28-21cfd53b579b"
+                LastKnownName="Client"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="87619705-12f7-404e-8c40-0b29388ed83e"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="390c217c-8b92-4f56-9f5c-7cb2381aeaaa"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="9bad5be3-52f2-4605-bf28-21cfd53b579b"
+                LastKnownName="Client"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3d50c8a6-efe4-44f2-89d7-0777c02298ca"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9d3605f9-4da5-4491-8c2d-282de6d645c2"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="9bad5be3-52f2-4605-bf28-21cfd53b579b"
+                LastKnownName="Client"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d3076ffc-639a-4f57-b1a9-c0d686c20710"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="9bad5be3-52f2-4605-bf28-21cfd53b579b"
+                LastKnownName="Client"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="100e76b2-8fe9-404d-9164-6e0b02e3b367"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="80876c4e-3bd0-400e-a539-219e90a5b69c"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="iMenu Model.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="b789a96e-71bc-47fd-b124-3a81d424589a"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="iMenu Model.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="87619705-12f7-404e-8c40-0b29388ed83e"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="iMenu Model.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3b07d3c7-e36c-4b3f-9039-e48f8d29bfbb"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="iMenu Model.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="b789a96e-71bc-47fd-b124-3a81d424589a"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="159972b6-68cf-4f86-b42b-122780b856d6"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="iMenu Model.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="80876c4e-3bd0-400e-a539-219e90a5b69c"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8e15015e-fa57-4464-8aca-552c282107ba"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="iMenu Model.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="3fc16abe-f17d-4919-a74b-d683e5a0a82e"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="cc02350d-1d07-438c-97f3-d14e77021bba"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="iMenu Model.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="3d86e0cd-04ae-4e5d-b7b1-54b53ed44464"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="iMenu Model.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="1310cdc7-6de6-4b6f-8cc8-c624aed0e695"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="iMenu Model.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3d50c8a6-efe4-44f2-89d7-0777c02298ca"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="iMenu Model.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="3d86e0cd-04ae-4e5d-b7b1-54b53ed44464"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="636348ef-fa26-4f8b-b71e-0699654b2869"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="iMenu Model.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="cc02350d-1d07-438c-97f3-d14e77021bba"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="66761bdc-81bf-4d1e-a05b-9bf98022df49"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="iMenu Model.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+                LastKnownName="Server"
+                LastKnownLocation="iMenu Model.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="9bad5be3-52f2-4605-bf28-21cfd53b579b"
+            name="Client"
+            isActor="false"
+            lifelineDisplayName="Client">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="cbc8b5c5-db5a-4056-8436-e773b899a43f"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="iMenu Model.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="390c217c-8b92-4f56-9f5c-7cb2381aeaaa"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="iMenu Model.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d3076ffc-639a-4f57-b1a9-c0d686c20710"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="iMenu Model.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9d3605f9-4da5-4491-8c2d-282de6d645c2"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="iMenu Model.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="b54b90a7-b0f5-4089-9cae-18a56220980c"
+            name="Server"
+            isActor="false"
+            lifelineDisplayName="Server">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="b789a96e-71bc-47fd-b124-3a81d424589a"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="iMenu Model.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="80876c4e-3bd0-400e-a539-219e90a5b69c"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="iMenu Model.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3d86e0cd-04ae-4e5d-b7b1-54b53ed44464"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="iMenu Model.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="cc02350d-1d07-438c-97f3-d14e77021bba"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="iMenu Model.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="c66e1179-0db2-4eb6-9ffa-8efb7765f813"
+            name="Authentication;"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cbc8b5c5-db5a-4056-8436-e773b899a43f"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="iMenu Model.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="87619705-12f7-404e-8c40-0b29388ed83e"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="iMenu Model.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1bc59d14-1582-4dfa-8181-68f5936c12fd"
+            name="return (Success ? ResultJSON : ErrorInformation);"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3b07d3c7-e36c-4b3f-9039-e48f8d29bfbb"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="iMenu Model.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="390c217c-8b92-4f56-9f5c-7cb2381aeaaa"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="iMenu Model.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="35cb32f6-7cee-4073-8062-69cc5890a6e7"
+            name="ExecuteFunction(string FunctionID, object[] Parameters);"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d3076ffc-639a-4f57-b1a9-c0d686c20710"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="iMenu Model.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1310cdc7-6de6-4b6f-8cc8-c624aed0e695"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="iMenu Model.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="bd9a712a-b4ab-4ee5-affd-a67e610de3a1"
+            name="return ResultJSON;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3d50c8a6-efe4-44f2-89d7-0777c02298ca"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="iMenu Model.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9d3605f9-4da5-4491-8c2d-282de6d645c2"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="iMenu Model.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="159972b6-68cf-4f86-b42b-122780b856d6"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8e15015e-fa57-4464-8aca-552c282107ba"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="00cb4c98-2b8d-40c4-88d6-8e3f57d94eb8"
+        name="Interaction.Authentication.Server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="40bbbbe2-8def-4d12-8640-f397ee1c6f34"
+            name="Authenticate(string Login, string Password)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f5883a15-ca1b-467d-ade5-a37a7c31e86a"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f5bf8d18-849d-49ba-acbe-32d90145ca34"
+                  LastKnownName="Вычислить хэш от пароля"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="f5bf8d18-849d-49ba-acbe-32d90145ca34"
+            name="Вычислить хэш от пароля"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9e3bbd94-5f78-4261-846d-5b046941a222"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8ff149d8-b998-43a0-9a95-a0a7e88b823c"
+                  LastKnownName="Найти пользователя по логину и хэшу"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="8ff149d8-b998-43a0-9a95-a0a7e88b823c"
+            name="Найти пользователя по логину и хэшу"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9a19b4fe-3804-4200-8d13-d72e81d1d265"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="a8058eed-5546-4f62-9397-8915ed3fe06b"
+                  LastKnownName="Найден?"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="a8058eed-5546-4f62-9397-8915ed3fe06b"
+            name="Найден?"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="8f6a537e-75ef-4258-8c23-f13ff2744104"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ef4ac6e5-a07e-4ae5-aaa8-4d5e4c9ed4a7"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="158b0a32-83e3-4589-866b-799fba96f0fe"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7d1cac64-55b8-4ecf-bb94-87496e89b30a"
+                  LastKnownName="Записать в таблицу ключ аутентификации, ID пользователя, длидельность сессии"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c5c20c47-7243-4086-8441-fe1361c243e7"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3de91f74-2afc-4fc1-af64-a16ce20a7f8f"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="264f52cb-5770-4a2d-b543-810ba888577d"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="ef4ac6e5-a07e-4ae5-aaa8-4d5e4c9ed4a7"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f52300a6-411c-41b1-8774-3511ae85b6ab"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c5c20c47-7243-4086-8441-fe1361c243e7"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="7d1cac64-55b8-4ecf-bb94-87496e89b30a"
+            name="Записать в таблицу ключ аутентификации, ID пользователя, длидельность сессии"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="38dea8dc-c89a-406a-9091-cab93ad1aeba"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c5c20c47-7243-4086-8441-fe1361c243e7"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="264f52cb-5770-4a2d-b543-810ba888577d"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <initialNode
+            Id="361fbd13-3c5b-4c5c-97cb-ebc3a056608e"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8a0c0faa-1142-4656-ae4c-198b2d7e765e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="40bbbbe2-8def-4d12-8640-f397ee1c6f34"
+                  LastKnownName="Authenticate(string Login, string Password)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="636348ef-fa26-4f8b-b71e-0699654b2869"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="66761bdc-81bf-4d1e-a05b-9bf98022df49"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="b708abec-bc3d-4b6c-bb41-2d5617f4024a"
+        name="Server.ExecuteFunction"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="cf27bf1a-1a38-4fb9-8bc0-0bd7e65f4c03"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ed27b042-8a8f-43c7-90e2-64f8df85a185"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="232ed575-d639-43ee-bc13-7bf69a040855"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Parameters)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="232ed575-d639-43ee-bc13-7bf69a040855"
+            name="ExecuteFunction(string FunctionID, object[] Parameters)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fa6b35da-c737-4944-ae79-6a357b64039b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="90bb9b5f-0551-4f4e-a956-cf331e6dbf3f"
+                  LastKnownName="Найти в параметрах ключ аутентификации"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="f44e3064-e7dc-43a8-b17d-1bc7ffda561d"
+            name="Поиск функции по идентификатору"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a0f97df8-c04a-4314-8f30-5b0c47c69a45"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="70e8d171-c19b-4fa9-8af3-2cc95b1f1fa3"
+                  LastKnownName="Найдена?"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="70e8d171-c19b-4fa9-8af3-2cc95b1f1fa3"
+            name="Найдена?"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="c3b24b99-8bd8-4e99-a4f5-f8c973904c91"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="2a77fade-3649-4d64-ba90-cb3eea2f42c2"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="476973e1-fc1b-4cee-a5c4-11af0821b306"
+                  LastKnownName="Создать экземпляр класса функции"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="a512113a-534d-46ff-bd14-c2c70e1e93ee"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="04b529e8-3b84-4bbe-8500-e3dc616d663d"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="deacf9fe-a5bd-4632-a671-85931e23b721"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="80ea04ab-5595-49d4-9ae0-febc8bf0b742"
+            name="Сформировать ответ калиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8c02a37e-f934-4be1-af8a-521ae1bd92d0"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="d7ad070f-81cf-4e54-b88c-a87bea5e4ea3"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="476973e1-fc1b-4cee-a5c4-11af0821b306"
+            name="Создать экземпляр класса функции"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1bc38732-c33e-4335-b5b3-809f72746ba5"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0b18bf79-39f0-48ed-b734-0e5feba143fb"
+                  LastKnownName="Создать запись в журнале статистики"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="ceb6dccd-deee-4ab7-89f7-c1feca438c67"
+            name="Выполнить функцию"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fd8d39aa-d705-4dbc-afcf-301e89a5323a"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="deacf9fe-a5bd-4632-a671-85931e23b721"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="90bb9b5f-0551-4f4e-a956-cf331e6dbf3f"
+            name="Найти в параметрах ключ аутентификации"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="901c5185-4cf4-4c84-8d6a-63979967b9f4"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="e34c5d44-14c6-4f44-ac59-d9f853bf1edc"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="e34c5d44-14c6-4f44-ac59-d9f853bf1edc"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="ccd56c78-aaf1-41d0-981c-09258f49d9a8"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="9baed880-e6f8-46f6-9b7b-e86199e36363"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="27a2995d-06de-4619-9f85-aec64668b886"
+                  LastKnownName="Проверить наличие устройства"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="da5129c7-2a50-4024-9d33-978dd81130a3"
+            name="Проверить соответствие ключа аутентификации, ID устройства, длительность сессии"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9a669078-5fc9-435c-943e-d3b01891aa68"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="4cd0c283-35e2-4d57-84eb-6c56eb4c33c5"
+                  LastKnownName="Найдена?11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="4cd0c283-35e2-4d57-84eb-6c56eb4c33c5"
+            name="Найдена?11"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2c9cc209-4008-4f35-9b43-e376e2aa2e8c"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="80a256c9-737a-4501-a2bb-f4fc0f958c7d"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f44e3064-e7dc-43a8-b17d-1bc7ffda561d"
+                  LastKnownName="Поиск функции по идентификатору"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <activityFinalNode
+            Id="d7ad070f-81cf-4e54-b88c-a87bea5e4ea3"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="27a2995d-06de-4619-9f85-aec64668b886"
+            name="Проверить наличие устройства"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2166a180-ff1e-45a6-a9fd-142be341b29a"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="cc81a4b4-71eb-49c8-a88b-346e7576a287"
+                  LastKnownName="Найдена?12"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="cc81a4b4-71eb-49c8-a88b-346e7576a287"
+            name="Найдена?12"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="5899822d-158b-4f95-b4f0-48e012f833bb"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="be603f6c-a7c2-42de-ad08-6397918c5c0f"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1350178d-68f1-41b6-a2f3-a01bc0d4bfe2"
+                  LastKnownName="Проверить наличие пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="0b18bf79-39f0-48ed-b734-0e5feba143fb"
+            name="Создать запись в журнале статистики"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="283c6512-79cd-4527-8dee-f234e7e81022"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ceb6dccd-deee-4ab7-89f7-c1feca438c67"
+                  LastKnownName="Выполнить функцию"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="deacf9fe-a5bd-4632-a671-85931e23b721"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d8034c1f-4625-4ac1-a4c7-b9a2577d0362"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="80ea04ab-5595-49d4-9ae0-febc8bf0b742"
+                  LastKnownName="Сформировать ответ калиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode
+            Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+            name="Join111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5c75c723-c91a-4a7e-ad74-4e7a4ec635ee"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a512113a-534d-46ff-bd14-c2c70e1e93ee"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="1350178d-68f1-41b6-a2f3-a01bc0d4bfe2"
+            name="Проверить наличие пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c10de853-09af-4a58-b9b7-3de3ded8e7cb"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="6c2a2f21-ef13-43e0-9098-6285c4f45d70"
+                  LastKnownName="Найдена?121"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="6c2a2f21-ef13-43e0-9098-6285c4f45d70"
+            name="Найдена?121"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="56488425-e3e4-4923-a7f3-b146b6fff3d5"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c7ac26e-b6f1-4a1f-b5c1-9d64b7c6aa9a"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8b42f2f0-b632-4a89-a8a5-0e4f0d01360e"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="da5129c7-2a50-4024-9d33-978dd81130a3"
+                  LastKnownName="Проверить соответствие ключа аутентификации, ID устройства, длительность сессии"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="db46e5d0-ea4d-4ecc-b485-7f2ee6cbe39a"
+        name="GUID" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7f6fc7c3-fe19-4e6a-854f-1cb310155feb"
+        name="Blob" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7dcddeed-8088-4cd5-b6d1-8339f0985b4c"
+        name="EServerFunctionType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="c2e2a5b1-884b-4221-b028-759dfe784a70"
+        name="EServerUserType" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="bd150084-9a06-424e-9714-6dc244681fab"
+        name="EServerStatus" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d63d3ff6-8890-4472-becd-ba39739cd27d"
+        LastKnownName="Server (Base classes &amp; components)"
+        LastKnownLocation="Package1_2001.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6ce1ff65-9584-4e45-9143-e60a8bbb3fb0"
+        LastKnownName="Client (Base classes &amp; components)"
+        LastKnownLocation="Package2_2001.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="f51182cb-c921-4a52-a452-ab608867fd3c"
+        name="Server.Authentication.ClientUser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="16506689-c6c2-4ccb-bf74-ba8b90dcf70c"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e4ade83b-7414-4725-9c37-72d882b63f8d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5744b788-80e9-4f85-8f1a-d270f364c0a3"
+                  LastKnownName="Указан ли идентификатор устройства"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="64f88041-2d0c-4353-b25d-77d884b4351d"
+            name="Вычислить хэш от пароля"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2db38715-dd52-4e2a-91b2-bd3605dfad20"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="26370b03-0a52-4ffc-b79c-5213a1a21301"
+                  LastKnownName="Найти пользователя по логину и хэшу"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="26370b03-0a52-4ffc-b79c-5213a1a21301"
+            name="Найти пользователя по логину и хэшу"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c6616732-6327-41ee-92a9-5d6a729fb8ef"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="925d8d52-397b-46f6-8575-06fd0581a508"
+                  LastKnownName="Найден?"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="925d8d52-397b-46f6-8575-06fd0581a508"
+            name="Найден?"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="9a574c23-658c-48bd-829d-daabf14a899f"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="60ef2423-3616-4687-89ad-f36f19ed2f8f"
+                guard="+"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="d12b4c6f-1d35-4c6e-9ee7-b98f95b612bf"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="2fb39947-81f7-4660-836f-4e526e8044e4"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c0e2dea3-760d-496a-93fe-8059308bdcda"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="08821db3-bd78-4e3a-bbc5-e79d39505120"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="63cf924e-0588-4421-89a9-7c064f38930f"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3bd80110-7813-4f9d-b281-1852055b64c2"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="47d27d71-bae3-4100-afa2-4317c4fac9be"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="05e7211e-5add-48d4-bcf3-9c2cd76aa06d"
+            name="Записать в таблицу ID устройства, ключ аутентификации устройства, ID пользователя, длидельность сессии"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="43dbb896-a06c-4058-8b48-9821b2601987"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="47d27d71-bae3-4100-afa2-4317c4fac9be"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="08821db3-bd78-4e3a-bbc5-e79d39505120"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <initialNode
+            Id="f01bfcb0-6dab-4908-95f3-6aa6d0fb8e22"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a1845444-d15a-42bb-8731-8e6cd6a2ee69"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="16506689-c6c2-4ccb-bf74-ba8b90dcf70c"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="5744b788-80e9-4f85-8f1a-d270f364c0a3"
+            name="Указан ли идентификатор устройства"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f8fcddc6-1c10-492f-a55e-caa54321acbd"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="c933dd42-bd10-4947-8c99-06554b2afbc7"
+                  LastKnownName="Найден?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="c933dd42-bd10-4947-8c99-06554b2afbc7"
+            name="Найден?1"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2c3c3749-29d5-477d-a132-86c3a07988cb"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5945936a-813c-46be-9c1a-dde3917b662d"
+                  LastKnownName="Найти устройство"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="832a11a4-d666-4999-9d28-d8d9b9e697d1"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c75b1c93-d48f-43ed-ba14-ad5f2abcb6f5"
+                  LastKnownName="Вычислить хэш от пароля"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="5945936a-813c-46be-9c1a-dde3917b662d"
+            name="Найти устройство"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9969d2f6-aefd-42c0-a43b-b992a2da7db2"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="84a4e1ea-03fa-410d-b462-80298f115650"
+                  LastKnownName="Найден?11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="84a4e1ea-03fa-410d-b462-80298f115650"
+            name="Найден?11"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2428bbf1-82b3-466a-a73e-c909236b3655"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="043eca7f-0332-460d-a9bf-4053aeac916a"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="64f88041-2d0c-4353-b25d-77d884b4351d"
+                  LastKnownName="Вычислить хэш от пароля"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="4abbe410-1e00-41f5-9996-b77c17905d14"
+            name="Определить, имеет ли право пользователь на аутентификацию устройств"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5ddc024b-6619-4de1-a894-e9e8131cda39"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7d5d5872-ce5e-4bec-aef0-674b064c66b0"
+                  LastKnownName="Найден?2"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="7d5d5872-ce5e-4bec-aef0-674b064c66b0"
+            name="Найден?2"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="034d7010-04f1-4175-86cc-daa9654c0775"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="05e7211e-5add-48d4-bcf3-9c2cd76aa06d"
+                  LastKnownName="Записать в таблицу ID устройства, ключ аутентификации устройства, ID пользователя, длидельность сессии"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a63bf91a-74e1-4ef8-a6ff-24cc3254c283"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c75b1c93-d48f-43ed-ba14-ad5f2abcb6f5"
+            name="Вычислить хэш от пароля"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7c4c3d98-7472-46c9-922a-a901ee12885c"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="493306df-58d9-433c-a50a-b33512a684a1"
+                  LastKnownName="Найти пользователя по логину и хэшу"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="493306df-58d9-433c-a50a-b33512a684a1"
+            name="Найти пользователя по логину и хэшу"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4bd542fe-8500-4633-a4df-27388b35f402"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="96a246c1-3cdf-4a37-8208-c7060fc2a63e"
+                  LastKnownName="Найден?3"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="96a246c1-3cdf-4a37-8208-c7060fc2a63e"
+            name="Найден?3"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="61d85113-04dc-4437-853e-aa0125cc1fda"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a091d337-b6fb-4530-835e-c7240488f7fe"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="19bf4658-9f17-4f7d-9a14-2bbdd04772b1"
+                  LastKnownName="Определить, имеет ли право пользователь на создание новых устройств"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="19bf4658-9f17-4f7d-9a14-2bbdd04772b1"
+            name="Определить, имеет ли право пользователь на создание новых устройств"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5496cbff-19c3-40d8-9c95-f23c443958a8"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="19cd3fd7-197d-443c-81da-bff59acbcbed"
+                  LastKnownName="Найден?31"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="19cd3fd7-197d-443c-81da-bff59acbcbed"
+            name="Найден?31"
+            isLeaf="false">
+            <description>Найден?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="fe11fde9-1b28-4f66-800b-7ab401e5663e"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="36965ddc-0f18-4b7c-a089-1b1efc041952"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="440df369-b8e4-422e-ae3a-790ed0796306"
+                  LastKnownName="Создать новое устройство"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="440df369-b8e4-422e-ae3a-790ed0796306"
+            name="Создать новое устройство"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b5f09861-6dcc-4264-86bf-0d34ae8091ba"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="d12b4c6f-1d35-4c6e-9ee7-b98f95b612bf"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="002c5469-2ae7-498e-a146-0f41b13f94dd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="63cf924e-0588-4421-89a9-7c064f38930f"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode
+            Id="d12b4c6f-1d35-4c6e-9ee7-b98f95b612bf"
+            name="Join111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7306db1e-8a75-48b9-83c0-fce95699a8e5"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4abbe410-1e00-41f5-9996-b77c17905d14"
+                  LastKnownName="Определить, имеет ли право пользователь на аутентификацию устройств"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode
+            Id="47d27d71-bae3-4100-afa2-4317c4fac9be"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="28e612f8-532c-4c65-afd1-9c89c5c6f9dc"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2fb39947-81f7-4660-836f-4e526e8044e4"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8e4cb006-454c-4833-9bc2-f029b349b2cf"
+        LastKnownName="Notification (Base classes &amp; components)"
+        LastKnownLocation="Package_1227.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="64839eac-dc76-41e5-8934-3e81d2c1fb96"
+        name="Server.Lifetime"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="833ee634-1c85-4b74-80c3-6947e02dac2e"
+            name="Запуск приложения"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cb2aa43c-dba8-40ac-b3dc-15c50a4874f2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9b487a1d-b9df-4242-a62c-799bfb11cec6"
+                  LastKnownName="Проверка наличия конфигурации в реестре Windows"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <initialNode
+            Id="d751a637-a46e-48a0-adbb-c2dfad54c440"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f5afd3a6-6880-457d-bbd9-30cda5072f60"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="833ee634-1c85-4b74-80c3-6947e02dac2e"
+                  LastKnownName="Запуск приложения"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="9b487a1d-b9df-4242-a62c-799bfb11cec6"
+            name="Проверка наличия конфигурации в реестре Windows"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e005e649-8024-4dfc-ab57-2f1c13756f36"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="d72ee966-c996-416a-b518-740e14930a72"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="d72ee966-c996-416a-b518-740e14930a72"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5da00bf0-ac34-4ba3-a9f9-c221e9997506"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2ecb5a07-ff39-4918-bf09-35a002065c7a"
+                  LastKnownName="Проверка наличия конфигурации в файле конфигурации"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="96a56c26-ae7a-4625-9484-f589d38811ad"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="d3192df4-3610-4a54-9029-4550bd3119db"
+                  LastKnownName="Join1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="2ecb5a07-ff39-4918-bf09-35a002065c7a"
+            name="Проверка наличия конфигурации в файле конфигурации"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="aee8744e-6fa5-4cbc-b056-9eec49cf9bf4"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7f7206e5-022b-46ed-8bc2-7c8472c0364e"
+                  LastKnownName="Decision11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="7f7206e5-022b-46ed-8bc2-7c8472c0364e"
+            name="Decision11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bae148c2-aa78-4e71-bcba-6979aecd759a"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="840d9172-d2c1-482f-8bc1-abef9d56e813"
+                  LastKnownName="Загрузка настроек по умолчанию"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="dbf5877c-00e7-410b-b4c9-73f02d7dcb92"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="d3192df4-3610-4a54-9029-4550bd3119db"
+                  LastKnownName="Join1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="840d9172-d2c1-482f-8bc1-abef9d56e813"
+            name="Загрузка настроек по умолчанию"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6966197f-722a-4f14-b02a-46302fedc0f1"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0fdfa728-2ece-4391-943d-2676b56dd07a"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="0fdfa728-2ece-4391-943d-2676b56dd07a"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6b1b78e8-d4bf-42eb-8ed5-d29ab9f31460"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4bd9c989-0be3-421f-afe4-1c33bc013431"
+                  LastKnownName="Инициализация среды выполнения функций сервера"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a9a110de-633c-439c-a8ae-4f2a232e204b"
+            name="Загрузка конфигурации сервера"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ed21dcfd-64df-4520-b134-94492a571aca"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4bd9c989-0be3-421f-afe4-1c33bc013431"
+                  LastKnownName="Инициализация среды выполнения функций сервера"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="4bd9c989-0be3-421f-afe4-1c33bc013431"
+            name="Инициализация среды выполнения функций сервера"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f8257073-5725-4b11-a1d3-2a06201b2d0b"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7e92a841-8ef8-44f9-875e-83793fd98d79"
+                  LastKnownName="Decision111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="7e92a841-8ef8-44f9-875e-83793fd98d79"
+            name="Decision111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5491ca62-a34f-4e03-93fe-9b00d8abb39f"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="db555288-eac4-4213-8849-0bb06f8b3d31"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d7641377-b2e6-4609-b58f-bbd771885593"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="91c2f8b7-3f93-4f50-b9c6-b86310f409f2"
+                  LastKnownName="Запуск компоненты взаимодействия"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="db555288-eac4-4213-8849-0bb06f8b3d31"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fab10eb5-41a1-4d9c-a9eb-e9b68d84793a"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1ba5a254-c942-4461-8970-09b01a0c5b6a"
+                  LastKnownName="Закрытие приложения"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1ba5a254-c942-4461-8970-09b01a0c5b6a"
+            name="Закрытие приложения"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dd57d231-edf2-4e0e-b5ea-aea764564fa0"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="0e3f9c6f-d5be-43a2-946a-3720ddd127c1"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="d3192df4-3610-4a54-9029-4550bd3119db"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="997e611b-dcfb-4862-bc82-751ead63aa92"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a9a110de-633c-439c-a8ae-4f2a232e204b"
+                  LastKnownName="Загрузка конфигурации сервера"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="91c2f8b7-3f93-4f50-b9c6-b86310f409f2"
+            name="Запуск компоненты взаимодействия"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="45dfce72-b2fb-4418-bb2b-1974c1c1af69"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="cc59cd4c-d0e6-45e9-9cd5-6c01e782d6ea"
+                  LastKnownName="Decision1111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="cc59cd4c-d0e6-45e9-9cd5-6c01e782d6ea"
+            name="Decision1111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3170ec91-7eb3-4eb1-9f06-9e01dd19dd01"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="cf438f5e-2d62-4a1e-bd11-6217269b9688"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="dce7e578-2482-4754-97b0-a941175534b8"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4c72feca-44ca-4e14-8646-a01cccbd134a"
+                  LastKnownName="Ожидание запроса на выполнение функции"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="cf438f5e-2d62-4a1e-bd11-6217269b9688"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5708f1aa-25e5-4f3b-834b-028c744493ae"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9e548fcb-e525-4710-9790-17f5017ccfb1"
+                  LastKnownName="Закрытие приложения"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="9e548fcb-e525-4710-9790-17f5017ccfb1"
+            name="Закрытие приложения"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2d58cb19-9abe-465c-8670-56b65f565400"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="0e3f9c6f-d5be-43a2-946a-3720ddd127c1"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="4c72feca-44ca-4e14-8646-a01cccbd134a"
+            name="Ожидание запроса на выполнение функции"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="12e635f4-0122-4978-b0cb-023a9330fdf0"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="0e3f9c6f-d5be-43a2-946a-3720ddd127c1"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="9063ecd2-3c04-45e2-a62c-8123d6e43138"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <joinNode
+            Id="0e3f9c6f-d5be-43a2-946a-3720ddd127c1"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8651af9f-bc74-4c80-92dd-cf118f7d5073"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9063ecd2-3c04-45e2-a62c-8123d6e43138"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="3ff79510-4e18-4da7-b4d6-06c39a9e84fe"
+        name="Environment.Initilization"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="4c120883-3a96-407f-ab6a-bdcc4a7667ab"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="696ee669-164d-4927-8653-e51676e0e00b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f2fa5a4b-f9c4-4f46-b9d6-8525a24239e2"
+                  LastKnownName="Соединение с удаленной базой данных"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="f2fa5a4b-f9c4-4f46-b9d6-8525a24239e2"
+            name="Соединение с удаленной базой данных"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="247684d1-7cd2-4d31-b2b1-8767ce5e1df6"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="95f486df-eec6-4a17-824e-d52fde7a9955"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="95f486df-eec6-4a17-824e-d52fde7a9955"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dc1f0cf6-90b7-4167-addd-98a9e8ddebb1"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0d0f8515-87e1-44bc-9cd0-5471ff845f37"
+                  LastKnownName="Отрицательный результат"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="7de1beb2-2031-47f1-8187-655770360b63"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ea677793-fb6f-4b07-835c-2ecf1af24821"
+                  LastKnownName="Соединение с удаленным сервером в сети Интернете"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="0d0f8515-87e1-44bc-9cd0-5471ff845f37"
+            name="Отрицательный результат"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5991dbd3-65fa-4d8d-80b9-867bfb9d48da"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="55891f47-cd07-447a-ac20-0bba900518b6"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="ea677793-fb6f-4b07-835c-2ecf1af24821"
+            name="Соединение с удаленным сервером в сети Интернете"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c30d0619-c0eb-479c-b3b5-4e6dc77ba3e8"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="6d2f5456-1e58-406b-a5fd-031a79135635"
+                  LastKnownName="Decision11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="6d2f5456-1e58-406b-a5fd-031a79135635"
+            name="Decision11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="96a561f2-c020-4a09-b11a-c75a094950f7"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="719c1a14-2ea9-42fe-a54b-fe07ecef3953"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="28438b90-5f89-4a56-8c02-73453fc4dbaf"
+                guard="+"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1233d91c-cef2-4739-8df2-501e925d5008"
+                  LastKnownName="Join1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="719c1a14-2ea9-42fe-a54b-fe07ecef3953"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4606ef30-d4f6-41ee-969d-12dc7d8add75"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1233d91c-cef2-4739-8df2-501e925d5008"
+                  LastKnownName="Join1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="8f0aa0c1-64a9-41c2-855b-97ee2b472c80"
+            name="Запись состояния в журнал статистики"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5cef626b-1107-4b8b-a3f0-94223f7276d6"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="b7633137-8fe9-4a12-a68f-de82132f6f2a"
+                  LastKnownName="Decision111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="1233d91c-cef2-4739-8df2-501e925d5008"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a5a7ca7b-beeb-4ed3-88cd-7757012389c9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8f0aa0c1-64a9-41c2-855b-97ee2b472c80"
+                  LastKnownName="Запись состояния в журнал статистики"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <decisionNode
+            Id="b7633137-8fe9-4a12-a68f-de82132f6f2a"
+            name="Decision111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="16db7026-ec8c-4c9d-b2de-b4f4cf8ec86e"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6f29f85b-1bef-4796-97cb-1cad10f274ff"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="72d3ff8b-b10b-4eed-8f36-ea2f509c0014"
+                guard="+"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="aead8cf8-3733-4598-b663-63d080c86126"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="6f29f85b-1bef-4796-97cb-1cad10f274ff"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5b94e766-3848-4f8b-bcd0-91538c8bc5bf"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="aead8cf8-3733-4598-b663-63d080c86126"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="8b49be10-9a54-4ff2-98a6-e27be0a2eb77"
+            name="Положительный результат"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="18fbd2b5-9a47-459b-a920-f231a859c532"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="55891f47-cd07-447a-ac20-0bba900518b6"
+                  LastKnownName="Join111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="aead8cf8-3733-4598-b663-63d080c86126"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="92814bc4-7229-4828-9761-c78f5ce28f57"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8b49be10-9a54-4ff2-98a6-e27be0a2eb77"
+                  LastKnownName="Положительный результат"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode
+            Id="8c832896-f6b7-4ee1-aacc-3cc4f5f84a8f"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <joinNode
+            Id="55891f47-cd07-447a-ac20-0bba900518b6"
+            name="Join111"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e645b44b-7bc5-4e84-ac20-3f65e22aa418"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="8c832896-f6b7-4ee1-aacc-3cc4f5f84a8f"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="7af4b27b-ef01-4735-a3b6-94cf006a7960"
+        name="Communication.Initialize"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="7c621c7f-c8fd-4226-bdb9-6b73ad9c3be4"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="44f1e2b1-48e5-46a6-9657-dfbef28a951e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="64fb2ad4-5acf-4958-aff1-98fad64c80f5"
+                  LastKnownName="Загрузка из конфигурации адреса сервера"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="64fb2ad4-5acf-4958-aff1-98fad64c80f5"
+            name="Загрузка из конфигурации адреса сервера"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7e34e15e-0108-4b7a-9e56-e656489bff53"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="4f93f80b-9cd9-4e5d-bcc3-b26bbee26d3c"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="4f93f80b-9cd9-4e5d-bcc3-b26bbee26d3c"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1534e4d3-6bb8-4b77-aaa7-323564f38ec5"
+                guard="-"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="180febf8-cfb9-4df0-aee3-69752feda9b7"
+                  LastKnownName="Загрузка настроек по умолчанию"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="b415bff9-1259-435f-8916-89662b74d10d"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c9db11c1-1242-4bf6-9356-1b33df0bc71f"
+                  LastKnownName="Установка разрешений на взаимодействие с сервисом"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="180febf8-cfb9-4df0-aee3-69752feda9b7"
+            name="Загрузка настроек по умолчанию"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d75b998c-98ce-4225-9106-fed6f17592ab"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="37d0eb19-1168-4dcd-a873-02d4fce258c3"
+                  LastKnownName="Уведомление пользователя"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="37d0eb19-1168-4dcd-a873-02d4fce258c3"
+            name="Уведомление пользователя"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fee7eb04-431f-4d3d-9db3-89fbefc9924a"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c5685aa-076d-4c5d-8c1a-8a7e60c77bb7"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c9db11c1-1242-4bf6-9356-1b33df0bc71f"
+            name="Установка разрешений на взаимодействие с сервисом"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="706ea95a-52a0-4f89-bedd-19eb7c68cdc0"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8c5685aa-076d-4c5d-8c1a-8a7e60c77bb7"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="8c5685aa-076d-4c5d-8c1a-8a7e60c77bb7"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a6677d0f-0cdb-420f-8fbe-0ce6b5fda65e"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="294f767f-f0e2-44bd-bb8e-62bfad38cfdb"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode
+            Id="294f767f-f0e2-44bd-bb8e-62bfad38cfdb"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="aabec91d-f0b8-4a06-9a1e-b7544ad30d2f"
+        LastKnownName="Entities (Base entities)"
+        LastKnownLocation="Package_1755.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="2b406018-6842-40f1-be5d-3ca27c157e16"
+        name="Server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="ded6c418-4899-433e-9813-c14ebb9a88cd"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="03f8478c-e539-4683-8dad-fabc8a9c4677"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="58f59ce2-6c24-4f7b-83a6-4fca95a59004"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="58f59ce2-6c24-4f7b-83a6-4fca95a59004"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f198ca51-e16f-4f54-ae28-0f377ea8a9ba"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="d44ca19a-9726-4747-bfd1-63b004c8c1e1"
+                  LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="ab66db36-4191-49e8-8f66-e5028776b133"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="82490b34-308f-4c67-a343-cbf294dd1932"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="492db7d2-68a8-42ee-8bee-e895c04d53a4"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="eaf7a10f-8689-4981-8b29-4de71c92f5cf"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c8c818cf-6240-40c5-8384-bbba9f26083a"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ab66db36-4191-49e8-8f66-e5028776b133"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="4183420b-0d4e-4179-8f12-e492a0196318"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8face3e3-8a25-464b-9e32-d0f9d9efc9d3"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="07058061-86a7-4577-ae3d-abb71854fba2"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="492db7d2-68a8-42ee-8bee-e895c04d53a4"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a786101d-4d43-427b-9e30-e4043f79a673"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4183420b-0d4e-4179-8f12-e492a0196318"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode
+            Id="07058061-86a7-4577-ae3d-abb71854fba2"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="e5b80d73-b1da-45d5-8b17-3ebd312d10d8"
+            name="Получить список объектов типа &quot;Меню&quot;"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ed983ba4-7adf-4fb4-9613-e141f5f33bf2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="bca719c4-614d-4358-870e-4834eb529629"
+                  LastKnownName="Выбрать из списка объект, помеченный флагом Primary"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="bca719c4-614d-4358-870e-4834eb529629"
+            name="Выбрать из списка объект, помеченный флагом Primary"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bfc4fb0f-d3fa-4470-b47c-865fed863b5f"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3170c28a-b8b2-4a46-be99-62a2836fc3f5"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="3170c28a-b8b2-4a46-be99-62a2836fc3f5"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="af065da4-9d51-427f-9020-06c9da6bf516"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="eaf7a10f-8689-4981-8b29-4de71c92f5cf"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a5b0e83f-036c-4c69-8573-8755346826e1"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="cc0bc9a5-70f8-43b6-9d98-a3da60f8f05c"
+                  LastKnownName="Получить данные об объекте в соответствии с параметрами"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="cc0bc9a5-70f8-43b6-9d98-a3da60f8f05c"
+            name="Получить данные об объекте в соответствии с параметрами"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="053e7098-d39b-4dea-a3c4-56c013093dc6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c928ffe5-4315-48e4-8e33-96099d15f1b1"
+                  LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="d44ca19a-9726-4747-bfd1-63b004c8c1e1"
+            name="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="50d11b61-2966-479a-aba2-bfe83ed92461"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="e1fe2c9e-06e0-481d-a7c5-b572819704f2"
+                  LastKnownName="Найдена?111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="e1fe2c9e-06e0-481d-a7c5-b572819704f2"
+            name="Найдена?111"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="24fcc48f-214f-48d5-a4d5-d0f47e56e519"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="eaf7a10f-8689-4981-8b29-4de71c92f5cf"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a03f3d9a-e9ca-40cf-b8e6-c77bdbac0536"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e5b80d73-b1da-45d5-8b17-3ebd312d10d8"
+                  LastKnownName="Получить список объектов типа &quot;Меню&quot;"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="c928ffe5-4315-48e4-8e33-96099d15f1b1"
+            name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="773aac80-a2a2-44a5-994a-14f0661ac8bd"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="492db7d2-68a8-42ee-8bee-e895c04d53a4"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="cf3736c6-05aa-4ad0-9786-037ca4af4913"
+        name="Server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="22e6e663-3b95-4a1a-b8ac-5d894fe4ad81"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b282be71-d779-406c-b803-7efb463446b1"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6833b9a5-969a-4a80-9ef0-6345969f9260"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="6833b9a5-969a-4a80-9ef0-6345969f9260"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="213ade2e-cb82-44d5-ad05-2aa778a2d4ec"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="600b11d7-da09-4e83-a27f-58c0c447cc1a"
+                  LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a6bb6dcc-c48c-4da5-b254-c2b2cabe4302"
+            name="Найти объект типа &quot;Category&quot; с заданным ID (ключом)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="27fd144a-f428-4d14-8928-4c3a312cbec0"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="f1cbfa13-0fde-4395-ba53-2410ba8f71bf"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="f1cbfa13-0fde-4395-ba53-2410ba8f71bf"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="47f197e1-5cc3-41b5-95d5-d1c121a9fd70"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="af267b0d-f0a7-4cdf-820e-8a2521df7866"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="9dd53343-14d6-4c1c-992b-820c3384a33d"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f1fda44b-13bf-4c49-8c94-9849d5f53821"
+                  LastKnownName="Получить данные об объекте в соответствии с параметрами"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="af267b0d-f0a7-4cdf-820e-8a2521df7866"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d1e5daf0-752c-4378-9ab3-63572cf2b056"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="90f2cc4b-f840-4617-8a42-08804cf3e9ef"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="90f2cc4b-f840-4617-8a42-08804cf3e9ef"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8a9a45ee-6669-4da7-98a9-a0b53b25d5a9"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="52d092a1-6528-4a44-89a3-f690c5a6fe15"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="52d092a1-6528-4a44-89a3-f690c5a6fe15"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="54f141ef-0cd1-4ffe-902e-60e84f73cba1"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9e3a9215-811c-4806-b988-e1ef33b3bb2b"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="9e3a9215-811c-4806-b988-e1ef33b3bb2b"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6732c561-3fb5-4a86-9641-d3141354b2ef"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="00aaa7ed-aeff-4e7a-a6e6-f5c2a0aeb9dd"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="00aaa7ed-aeff-4e7a-a6e6-f5c2a0aeb9dd"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="f1fda44b-13bf-4c49-8c94-9849d5f53821"
+            name="Получить данные об объекте в соответствии с параметрами"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="84961b71-b8c8-494e-b97a-dd23cf879cfd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8ad992d1-9935-4ecf-a14e-963133e0192b"
+                  LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="600b11d7-da09-4e83-a27f-58c0c447cc1a"
+            name="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a9a8929b-bcdb-43dd-8116-bcda48d14741"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="ce81df5d-ccf4-47ba-99d0-7d2cfad4177d"
+                  LastKnownName="Найдена?111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="8ad992d1-9935-4ecf-a14e-963133e0192b"
+            name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="81a93b21-d096-412a-8acf-7ea625d02a36"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="52d092a1-6528-4a44-89a3-f690c5a6fe15"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="ce81df5d-ccf4-47ba-99d0-7d2cfad4177d"
+            name="Найдена?111"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="19fff2ee-23cc-4534-95d4-ed9783d1ee43"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="af267b0d-f0a7-4cdf-820e-8a2521df7866"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e68e37fe-a998-4871-946e-a1d0947ed1b7"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a6bb6dcc-c48c-4da5-b254-c2b2cabe4302"
+                  LastKnownName="Найти объект типа &quot;Category&quot; с заданным ID (ключом)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="2d328430-8a01-4d18-832f-d09ee043e687"
+        name="Server"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="52bc7839-3ccf-4a4b-8735-604b14c784af"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cf639730-aa8a-4bef-a217-2e707c572fea"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="492925c7-205e-4519-9006-5e7012cc2dec"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="492925c7-205e-4519-9006-5e7012cc2dec"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="da029576-71c5-4e81-b138-d5dc785ba75e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4eb5d20e-f8f2-4a0b-8e42-bee4bfba7825"
+                  LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1808a914-d198-4cb1-908e-7df4bef6c500"
+            name="Найти объект типа &quot;Service&quot; с заданным ID (ключом)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="363f9b15-6d2a-4070-b859-36bb226ab131"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="05b8ae13-571f-4738-9f7d-545f5d7b5016"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="05b8ae13-571f-4738-9f7d-545f5d7b5016"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2adf20d5-664b-46ce-bfe2-66257d1ba52e"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c09885e1-dcc2-4876-a8d7-3401c3eee0ba"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="7b9b762e-19db-4c04-987e-bace8706af41"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c0f21cd3-8961-4915-a93a-0f2d295808c7"
+                  LastKnownName="Получить данные об объекте в соответствии с параметрами"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="c09885e1-dcc2-4876-a8d7-3401c3eee0ba"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ab3889e0-8d3e-4c01-89b0-376e34306cee"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3d16e1ab-ab84-456e-9a58-9225b25d57e2"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="3d16e1ab-ab84-456e-9a58-9225b25d57e2"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="29c78f4f-5c7c-4dbf-b88c-19cd8f043c10"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8701f7a6-6491-4626-88ec-0f4a4342a1cc"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="8701f7a6-6491-4626-88ec-0f4a4342a1cc"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="83070e4c-2c3f-4dfa-b30d-d6c858a04268"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e52cd746-b869-4c43-a315-0a53d2d2a52b"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="e52cd746-b869-4c43-a315-0a53d2d2a52b"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fa2bb7e5-0362-401e-a671-98a0dd32b95c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="deacd920-3507-4361-a0ce-8b27bf2974c6"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="deacd920-3507-4361-a0ce-8b27bf2974c6"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="c0f21cd3-8961-4915-a93a-0f2d295808c7"
+            name="Получить данные об объекте в соответствии с параметрами"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c72fe174-a645-4b67-b0a4-4135b594e3cf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="55f545a1-5cda-4e5a-ba8b-6f38db886843"
+                  LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="4eb5d20e-f8f2-4a0b-8e42-bee4bfba7825"
+            name="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="05d95553-6d36-4420-9ecd-b561496b9a9c"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="88c64135-74aa-4085-8c23-461d47acc0d9"
+                  LastKnownName="Найдена?111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="55f545a1-5cda-4e5a-ba8b-6f38db886843"
+            name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8f2fe45b-6753-45e2-9aaa-47b157da480a"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="8701f7a6-6491-4626-88ec-0f4a4342a1cc"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="88c64135-74aa-4085-8c23-461d47acc0d9"
+            name="Найдена?111"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="a6763ed8-ff27-47fe-b40e-d61c2e5a18cd"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c09885e1-dcc2-4876-a8d7-3401c3eee0ba"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="4e7f3d04-31a6-4128-834e-e9461e165aee"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="1808a914-d198-4cb1-908e-7df4bef6c500"
+                  LastKnownName="Найти объект типа &quot;Service&quot; с заданным ID (ключом)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="27ab4de5-d706-4896-9536-34b5e74c5de3"
+        name="Server.Functions"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="2fbbe337-e7d8-4e46-83ed-ef0b1814076b"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f248b6ee-8482-4c32-bad7-c30561f5c2d3"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6aa42a02-e9b7-4e98-bc32-511b1288af68"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="6aa42a02-e9b7-4e98-bc32-511b1288af68"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9a67a76f-feb6-4873-8958-129a2684d5be"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7d650bb3-3cc5-486f-ba82-923069f59332"
+                  LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="62ac5702-94a3-4f76-9b24-fe10d38b0287"
+            name="Найти объект типа &quot;MediaResource&quot; с заданным ID (ключом)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fe8e6322-5ebb-403e-8635-ca1b29738291"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="2227e166-4061-4361-9ef7-c9e734eda788"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="2227e166-4061-4361-9ef7-c9e734eda788"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="8d5a48e7-c27f-4654-925f-194a21f3c33c"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1e85bafa-1f00-4476-a5c3-358032b32f67"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="a20e0bc6-49a7-4c4a-b0bb-f27131ec1e06"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="965a7eca-4baf-4fc5-9396-29aa2e3c132b"
+                  LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="1e85bafa-1f00-4476-a5c3-358032b32f67"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c3669ef7-9a4a-495c-99c0-755bea08e77d"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="d38d75e6-5bc9-46e5-9322-93e433ff7813"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="d38d75e6-5bc9-46e5-9322-93e433ff7813"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="38437dc4-0b06-489c-9831-a7f265cee258"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="a29e6075-7c1c-4efe-bbea-23a89878382e"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="a29e6075-7c1c-4efe-bbea-23a89878382e"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c337036e-8690-4321-b17c-7b95bfe7e4b6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e3604f8d-2ff9-4462-96ba-1cdfbfa3f710"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="e3604f8d-2ff9-4462-96ba-1cdfbfa3f710"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b0555c16-d84e-4789-9da8-6776e5d5f3af"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="798d6a2b-512d-4f7c-aa04-ba5bc6e8c37b"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="798d6a2b-512d-4f7c-aa04-ba5bc6e8c37b"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="7d650bb3-3cc5-486f-ba82-923069f59332"
+            name="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="afdf389b-a046-4d01-a366-e804cc9a3c63"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="8941a964-49b2-408a-9d38-98130b9e0a8a"
+                  LastKnownName="Найдена?111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="8941a964-49b2-408a-9d38-98130b9e0a8a"
+            name="Найдена?111"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="ad9b25c9-9d47-4d44-8839-e80ce27946f1"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1e85bafa-1f00-4476-a5c3-358032b32f67"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="8df2ca6d-06a4-4b97-841e-1111e8c63ae6"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="62ac5702-94a3-4f76-9b24-fe10d38b0287"
+                  LastKnownName="Найти объект типа &quot;MediaResource&quot; с заданным ID (ключом)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="965a7eca-4baf-4fc5-9396-29aa2e3c132b"
+            name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f7a71655-4151-4750-875b-30c3dd67c0c6"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="a29e6075-7c1c-4efe-bbea-23a89878382e"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="a83197d7-d96d-43a9-9258-be68acc745ea"
+        name="Server.Functions.MakeOrder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="2f594625-5a0b-4ad8-926c-2b20a1da5d60"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="884c993c-e76b-4515-a93c-84fa0e3a0224"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f21c39b5-3e27-4153-9e4c-d247be7cfdcf"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="f21c39b5-3e27-4153-9e4c-d247be7cfdcf"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a9ad7834-aba2-478d-95de-3066bc4f3344"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b5b7697a-df52-44c7-aedc-cfca132999bb"
+                  LastKnownName="Десериализовать обект типа &quot;Order&quot;"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="b5b7697a-df52-44c7-aedc-cfca132999bb"
+            name="Десериализовать обект типа &quot;Order&quot;"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1a5c1c86-5569-42ef-916a-d439f1ee3b19"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="d5369c41-a7c4-4d04-85c4-cd19be5df9ab"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="d5369c41-a7c4-4d04-85c4-cd19be5df9ab"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="28e2c001-fccd-4887-ad7d-c7664c555242"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="e58050ac-5f0b-4ed0-b1a6-20ac6ca7f3f2"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d31857ab-d326-44ab-b68f-bb73d07bd2e2"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c86e517b-664f-4665-a938-1dc0faf43d73"
+                  LastKnownName="Имеет ли пользователь право на редактирование списка заказов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="e58050ac-5f0b-4ed0-b1a6-20ac6ca7f3f2"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ceaf6298-be8c-42e5-82ef-175ec10355f2"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0b061944-c86f-45e6-be53-4255d61152cf"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="0b061944-c86f-45e6-be53-4255d61152cf"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ec6ee4ce-c5f8-49a8-9fdc-33d38723c6e3"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="f97c145f-31db-43ae-8927-5d77d1596233"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="f97c145f-31db-43ae-8927-5d77d1596233"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="030f5156-278d-4d8c-9128-8d09a646c48b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0c2f90bf-27af-4404-8d31-7dc44050e09d"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="0c2f90bf-27af-4404-8d31-7dc44050e09d"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c9699757-0f36-4c14-99cf-8f38f69b4a5e"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="cd76939b-40a3-48f2-a306-a90d27cd071d"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="cd76939b-40a3-48f2-a306-a90d27cd071d"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="72de26b2-d29b-4768-b3d5-e14557dcb6a5"
+            name="Создать новый заказ в БД"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="224811ee-b601-4682-8ff3-c06d2b13f8fd"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4130643e-a5fe-4751-bad8-b82f2f87305d"
+                  LastKnownName="Проинформировать при необходимости доступные Notification Applications"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="4130643e-a5fe-4751-bad8-b82f2f87305d"
+            name="Проинформировать при необходимости доступные Notification Applications"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f5b4b769-fae0-45f8-b568-f436189e5eb7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="11b40c2c-6d40-4cd2-a9f3-2da0f513529a"
+                  LastKnownName="Распечатать при необходимости заказ на удаленном принтере"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="11b40c2c-6d40-4cd2-a9f3-2da0f513529a"
+            name="Распечатать при необходимости заказ на удаленном принтере"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c45018e6-cb0b-44e8-a8fc-7bc36131002c"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="f97c145f-31db-43ae-8927-5d77d1596233"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="c86e517b-664f-4665-a938-1dc0faf43d73"
+            name="Имеет ли пользователь право на редактирование списка заказов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e9d4c0cd-23ec-4574-a47e-55ecba491978"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="2050fe35-5732-4981-9093-e1db48413cd9"
+                  LastKnownName="Найдена?11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="2050fe35-5732-4981-9093-e1db48413cd9"
+            name="Найдена?11"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="1f8f4c10-c513-472b-af8c-e9d0988fb3f9"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="e58050ac-5f0b-4ed0-b1a6-20ac6ca7f3f2"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="2fefc892-b5ef-4fb0-a503-7a57da94caa6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="72de26b2-d29b-4768-b3d5-e14557dcb6a5"
+                  LastKnownName="Создать новый заказ в БД"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="38b04ddd-f506-4f69-a6f3-87c213d7fd95"
+        name="Server.Functions.GetOrderData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="8d7e145a-f888-4051-a86e-0ba82b08db8c"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ab73471b-6463-4989-a106-d4b84fffd721"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a942869e-2ead-4cc5-aa0a-b66d5259e9f9"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="a942869e-2ead-4cc5-aa0a-b66d5259e9f9"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="15fe14ec-5660-4def-98e3-b2b2886f0fb6"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a2d4cec4-3b1f-4874-aefc-02e456b9157a"
+                  LastKnownName="Найти заказ с заданным ID (ключом)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a2d4cec4-3b1f-4874-aefc-02e456b9157a"
+            name="Найти заказ с заданным ID (ключом)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="88bd634a-42c8-4c5d-86b8-8cdbc0d35f39"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="f9346c95-aa92-4b84-9edc-87e3cee12993"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="f9346c95-aa92-4b84-9edc-87e3cee12993"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2b4f3827-6e8a-49e4-903d-6b27a39b3f41"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="fa99b359-c474-4d70-b852-bad0aba5ee0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="46c96d5c-7ba7-4a91-a8a5-cff7e1fb7e4a"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b70482fe-82f7-441e-8f81-a29ac10d2195"
+                  LastKnownName="Имеет ли пользователь право на просмотр данных о заказах"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="fa99b359-c474-4d70-b852-bad0aba5ee0c"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e18f4bf8-3d19-4ca1-8a4a-19a68ced9fab"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="25000112-4dc3-46b4-887f-49439aec4409"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="25000112-4dc3-46b4-887f-49439aec4409"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="83856a7b-49df-4744-b5d8-98632cc2756b"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="aef1c910-cb56-4a03-b36f-3b46217f1bf1"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="aef1c910-cb56-4a03-b36f-3b46217f1bf1"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="dc2655ae-8f28-4b7c-8ea1-b609b0ec1164"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="4d15dc08-5e41-4c38-81a8-e056e8e41d68"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="4d15dc08-5e41-4c38-81a8-e056e8e41d68"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e745bf63-df87-4213-a3d8-7921170e3a48"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="7110be13-16db-484d-8cff-434e3c51b2ae"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="7110be13-16db-484d-8cff-434e3c51b2ae"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="3603f000-dc08-4616-9f39-1fedb8090823"
+            name="Получить данные о заказе"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="29176a84-4668-4e64-9bd5-ecd66d01969c"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="aef1c910-cb56-4a03-b36f-3b46217f1bf1"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="b70482fe-82f7-441e-8f81-a29ac10d2195"
+            name="Имеет ли пользователь право на просмотр данных о заказах"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0eb0a541-70c0-4522-827f-2f58ecaa7261"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="7e7e21cc-5f1b-4b12-bbd7-c3caf978f5ab"
+                  LastKnownName="Найдена?11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="7e7e21cc-5f1b-4b12-bbd7-c3caf978f5ab"
+            name="Найдена?11"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="775b226e-eeb8-4c10-b367-fddbff44557b"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="fa99b359-c474-4d70-b852-bad0aba5ee0c"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="cfb5e884-63c8-4c48-8fea-c4cdbb3adf0c"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="3603f000-dc08-4616-9f39-1fedb8090823"
+                  LastKnownName="Получить данные о заказе"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="8dd634d0-db1f-43bf-aea9-2e2481c0d691"
+        name="Server.Functions.CallOfficiant"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="efe8d5f3-685c-4cb3-a457-6c79a5dd13bf"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="83b585d2-067a-4125-ad94-a69d2a404fcb"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="ba6eae5d-521d-4e4f-88c5-6b9389124b40"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="ba6eae5d-521d-4e4f-88c5-6b9389124b40"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="827f9250-47dd-40f2-b862-e05bb196cd78"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0f66cce0-e53d-4485-a90a-50dd4a9e8216"
+                  LastKnownName="Проинформировать при необходимости доступные Notification Applications"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="6345b54e-0600-4913-89b6-64f15358c2c4"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9fb88cea-f251-4390-94d8-92c3d990aea7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="43a66a42-e681-43be-9507-bb5da5a8d2e0"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="43a66a42-e681-43be-9507-bb5da5a8d2e0"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bca530e2-8208-473c-b339-50cb8d449582"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="b9df1d2e-194c-47fa-bb74-b2b4a591bf2d"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="b9df1d2e-194c-47fa-bb74-b2b4a591bf2d"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="0f66cce0-e53d-4485-a90a-50dd4a9e8216"
+            name="Проинформировать при необходимости доступные Notification Applications"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c2f48e90-0d4e-4b5d-a09e-65ab207418e1"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="6345b54e-0600-4913-89b6-64f15358c2c4"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="4c0f6c03-36c7-48c1-ae6e-49a7afb3f7b4"
+        name="Server.Functions.GetAdvertisement"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="c2f0d7f7-41b2-42c3-9778-485620afb9f1"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="02d3396a-bbb8-44bc-af5e-0b83da12d75c"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9ef7e260-b177-4c11-8693-06f664c8a77c"
+                  LastKnownName="ExecuteFunction(string FunctionID, object[] Params)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="9ef7e260-b177-4c11-8693-06f664c8a77c"
+            name="ExecuteFunction(string FunctionID, object[] Params)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="16523693-3786-4630-91c6-125317358c42"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="78d198c1-0843-4e00-93d0-b1cb68622faa"
+                  LastKnownName="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="adbe7646-3d3b-4935-892f-3aa38205ec13"
+            name="Найти объект типа &quot;Advertisement&quot; с заданным ID (ключом)"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="716eea46-203a-494f-b12d-94b43d7fa28b"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="09016c10-2b5f-48cb-b3d2-7cc472d389f0"
+                  LastKnownName="Найдена?1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="09016c10-2b5f-48cb-b3d2-7cc472d389f0"
+            name="Найдена?1"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="01d14330-367a-4597-90f3-d0dfb7b4dadd"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="5a859ae1-c660-4b52-a91b-18c4924015be"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="19d1920a-988d-420a-8a9e-270d4180c689"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="87a0b225-a66c-4b9c-9a68-d40d84494afb"
+                  LastKnownName="Получить данные об объекте в соответствии с параметрами"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode
+            Id="5a859ae1-c660-4b52-a91b-18c4924015be"
+            name="Join11"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="998658f5-30fb-4512-9fa3-424e03f71fbf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="6293a1e5-6bf5-42f3-8839-508688848bec"
+                  LastKnownName="Сформировать отчет об ошибке"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="6293a1e5-6bf5-42f3-8839-508688848bec"
+            name="Сформировать отчет об ошибке"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c303684e-363f-4c66-8991-1449138336d8"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c24a5222-f876-48c4-a48d-4dfdee02bf05"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode
+            Id="c24a5222-f876-48c4-a48d-4dfdee02bf05"
+            name="Join112"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e1e20149-9322-4179-84e1-cde47c178bf8"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f664747d-0b12-40b7-aa53-6138d1f5aabf"
+                  LastKnownName="Сформировать ответ клиенту"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="f664747d-0b12-40b7-aa53-6138d1f5aabf"
+            name="Сформировать ответ клиенту"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e7bf4589-50b6-4133-aba6-f93ba1a09c5c"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="fd24cc2a-fe1d-4807-a4da-7faed32b2886"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="fd24cc2a-fe1d-4807-a4da-7faed32b2886"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="87a0b225-a66c-4b9c-9a68-d40d84494afb"
+            name="Получить данные об объекте в соответствии с параметрами"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cf86baac-51e1-4245-b6d4-5d5b29cf9460"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="2760afd5-68d0-4632-8c8e-63d480471da5"
+                  LastKnownName="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="78d198c1-0843-4e00-93d0-b1cb68622faa"
+            name="Определить, имеет ли право пользователь на просмотр списка метаобъектов"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="17998510-c306-425f-9367-e29e19bd88a5"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="b664307b-9291-4eab-9b0f-2c69ea2f0276"
+                  LastKnownName="Найдена?111"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="2760afd5-68d0-4632-8c8e-63d480471da5"
+            name="Провести фильтрацию объектов в соответствии с правами пользователя на просмотр"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1c5f4063-fe34-4afd-a6a3-b8979734673c"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="c24a5222-f876-48c4-a48d-4dfdee02bf05"
+                  LastKnownName="Join112"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="b664307b-9291-4eab-9b0f-2c69ea2f0276"
+            name="Найдена?111"
+            isLeaf="false">
+            <description>Найдена?</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="21be67f5-f3d2-468b-8b79-779fd2b46e68"
+                guard="-"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="5a859ae1-c660-4b52-a91b-18c4924015be"
+                  LastKnownName="Join11"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="3bab54fe-c587-4d39-a151-e4d1bc734cf3"
+                guard="+"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="adbe7646-3d3b-4935-892f-3aa38205ec13"
+                  LastKnownName="Найти объект типа &quot;Advertisement&quot; с заданным ID (ключом)"
+                  LastKnownLocation="iMenu Model.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

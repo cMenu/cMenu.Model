@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="910b8525-090c-4ec3-97f7-4476ddb5a942" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="faa7b2cb-91cf-427b-b4a8-53c572a28880" name="Comment1">
+      <body>Notification Application - приложение используемое для уведомления пользователей системы о важныъ событиях. Компьютер пользователя может находится как в локальной сети, как и в сети Интернет.
+Для того, чтобы уведомление было доставлено, "сервер" должен знать точный IP адрес конечного компьютера.
+
+Типы событий:
+0. Вызов оффицианта
+1. Оплата заказа.
+2. Подтверждение заказа.
+3. ...</body>
+    </comment>
+    <comment Id="3c5958e7-8428-4fdd-98eb-c14345b831f3" name="Comment2">
+      <body>Local Net Printer - принтер в локальной сети организации. На данное устройство посылаются уведомления, документы, которые требуют печати.</body>
+    </comment>
+    <comment Id="abe21a03-49f8-41a7-a4a8-e1f6ee6798a9" name="Comment3">
+      <body>Management Tool - утилита для управления сервером. Может быть установлена на нескольких компьютерах в рамках локальной сети организации.</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="7b53b1ca-8b87-45b3-b601-e4a55166ee2f" name="Client Device #1">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="f3ab512b-1773-4063-bd78-67c96d972293" direction="Bidirectional">
+          <layerMoniker Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="1ee09b71-9cd3-4b1d-ab80-e7a131e36a65" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" name="Server">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="5433b7a6-5e5a-47ec-bd9c-ce6c2f4168bc" direction="Bidirectional">
+          <layerMoniker Id="f9b68e64-c0cf-4827-9933-3d1116b92880" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="d1c2e7f7-42e3-49ae-ad03-e628a5fa554c" direction="Bidirectional">
+          <layerMoniker Id="06bd4c13-33e2-47fc-8618-aaaf3bf94aea" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a76b5145-8e3d-4107-b30a-97f4e0e15af2" direction="Forward">
+          <layerMoniker Id="73ae5c56-ab9d-4d2b-b2d1-a35c3c77c06b" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="c50fb965-37fa-4393-ac9f-b89e39d863cd" direction="Forward">
+          <layerMoniker Id="a67fb687-2eb3-4df7-8e86-b98d65e4ae7d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="d9c9ffd2-352a-4935-8614-64be4d182b45" name="Communication Component" />
+        <layer Id="8069ae1c-51c1-497b-aeb8-679f9850e768" name="Function Execution Component" />
+        <layer Id="49b73e6d-d46c-4f37-840a-ea41c4c938ba" name="Function Execution Env. Component" />
+        <layer Id="bf4d71e7-1432-4f75-bf1e-5c6320ea2049" name="DB Communication Component" />
+        <layer Id="825f80a3-c7b8-4fb1-83fd-f173a8e80a57" name="Statistics Component" />
+        <layer Id="0f0946e2-376b-4e7b-a7ef-3b40bb6e0b24" name="Administration Component&#xD;&#xA;" />
+      </childLayers>
+    </layer>
+    <layer Id="87250b36-bfb4-4fff-9a5d-56e8e6d1375e" name="Client Device #N">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="b18151b2-36d1-48f2-8421-1236dfaff85f" direction="Bidirectional">
+          <layerMoniker Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="408b3adf-928e-4e4d-a2a6-55aad46b4399" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="f9b68e64-c0cf-4827-9933-3d1116b92880" name="Management Tool #1">
+      <childLayers>
+        <layer Id="e55f4e33-8f3c-4fb0-9827-31acd71b6f8a" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="06bd4c13-33e2-47fc-8618-aaaf3bf94aea" name="Management Tool #N">
+      <childLayers>
+        <layer Id="a0d52316-0f6b-46c7-9f09-03ee955df256" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="8c574ecf-ccf7-4d51-b826-e1f0f41e01ae" name="Database">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="85426b5b-a759-4ae0-883a-90eb9237b93c" direction="Bidirectional">
+          <layerMoniker Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="0847d1cd-d374-4c23-997d-7dc7349c1e3f" name="Notification Application #1">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="192cc95b-27e8-4d89-bb98-6e673bbdd83e" direction="Bidirectional">
+          <layerMoniker Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="baf769e6-5b3a-4f87-857f-9d572d17b659" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="3a20660c-b7dd-4008-9c2b-913990ca1d9a" name="Notification Application #N">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="b86cd500-df80-4600-93c5-4682baf150e5" direction="Bidirectional">
+          <layerMoniker Id="7592364e-3a2d-4c71-8e15-6ff9ebd13269" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="b33d1377-c13b-4fef-9183-3acae15f5450" name="Communication module" />
+      </childLayers>
+    </layer>
+    <layer Id="73ae5c56-ab9d-4d2b-b2d1-a35c3c77c06b" name="Local Net Printer #1" />
+    <layer Id="a67fb687-2eb3-4df7-8e86-b98d65e4ae7d" name="Local Net Printer #N" />
+  </layers>
+</layerModel>

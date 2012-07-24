@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="7a250acb-babc-47a8-a2c5-19bbe7b49854" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="5096c165-4eb9-4d93-aec9-d2405d8016b3" name="Comment1">
+      <body>0. На вход компоненты взаимодействия приходит запрос на выполнение функции.
+1. Запрос перенаправлятеся в компоненту выполнения функций, которая работает в своей заранее созданной среде.
+
+С помощью среды выполнения компонент может взаимодействовать с другими компонентами "сервера". Необходимость наличия среды выполнения обусловлено разными потоками, в которых выполняется сам сервис и хост-приложение. Следовательно, функция напрямую не может получить доступ к ресурсам хост-приложения.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="542162fe-729e-4587-bba9-a44290522092" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="2f887cc9-576e-474e-ae95-b3538e366fb0" name="Communication module">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="cc0e4d39-d0e0-4daf-95fa-5ad28655b5bc" direction="Bidirectional">
+          <layerMoniker Id="edba9d03-a3a1-41fc-9136-3a610b8aacbd" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="542162fe-729e-4587-bba9-a44290522092" name="Function Execution Environment">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="635bc030-bb87-4208-9ea0-cd4686742f3f" direction="Bidirectional">
+          <layerMoniker Id="bb398562-f287-4497-9872-2460ad0adcf5" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="5e0f6b84-3b16-41c1-986c-bc31ee468181" direction="Bidirectional">
+          <layerMoniker Id="8627badf-29b0-4694-a324-2eddc364dc7f" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="8874848b-7d55-4ad3-9f0b-b4978f1bc671" direction="Bidirectional">
+          <layerMoniker Id="8e20866e-ae62-4d3e-a4c5-0fa3c5dd965e" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="edba9d03-a3a1-41fc-9136-3a610b8aacbd" name="Function Execution" />
+      </childLayers>
+    </layer>
+    <layer Id="bb398562-f287-4497-9872-2460ad0adcf5" name="Communication component" />
+    <layer Id="8e20866e-ae62-4d3e-a4c5-0fa3c5dd965e" name="DB Communication component" />
+    <layer Id="8627badf-29b0-4694-a324-2eddc364dc7f" name="Statistics component" />
+  </layers>
+</layerModel>

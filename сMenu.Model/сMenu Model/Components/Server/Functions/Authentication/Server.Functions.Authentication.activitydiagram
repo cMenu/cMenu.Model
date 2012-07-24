@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="02338022-2e7d-45c2-9531-3e9396063803" name="Server.Authentication.ClientUser" linkedPackageId="5f2f6106-cd97-4bc9-b48b-800b02526388" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="ec5d7144-282b-49a5-a4af-7c56f70096b1">
+      <elementDefinition Id="82305c41-8b07-478f-a18b-34003adc7318" />
+      <body>При создании нового устройства:
+0. Длительность сессии ограничивается. Ограничение может быть установлено вручную, либо автоматически.
+1. В ответ кроме ключа аутентификации помещается ID нового устройства.
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="4f37d502-0b72-4cc7-ba8f-5206150cfc84" LastKnownName="Создать новое устройство" />
+      </annotatedElements>
+    </comment>
+    <comment Id="d314330c-22e4-4d3f-b750-3c17f81a5d9e">
+      <elementDefinition Id="f311521c-3b6d-4236-8f5e-2eba1986098d" />
+      <body>При нахождении уже существующего устройства:
+0. Длительность сессии по умолчанию неограничена, но может быть выставлена вручную.
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="15136d18-b550-41bb-994b-f4177529e73e" LastKnownName="Найти устройство" />
+      </annotatedElements>
+    </comment>
+    <comment Id="9fc2f1da-5733-4976-a43e-a75b195a924b">
+      <elementDefinition Id="e9b634d1-5b28-44cb-bc61-e44405d330bc" />
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_LOGIN - логин пользователя, под которым осуществляется вход в систему.
+1. PARAM_PASSWORD - пароль пользователя, под которым осуществляется вход в систему.
+2. PARAM_DEVICE_TYPE - тип устройства (Внешнее - новое, принесенное клиентом устройство. Внутренее - постоянно находящееся на рабочем месте).
+3. PARAM_DEVICE_MAC - MAC адрес устройства, с коротого производится вход.
+4. PARAM_SESSION_DEADLINE - дата окончания сессии (если необходимо).
+5. PARAM_DEVICE_NAME - имя устройства (если необходимо).</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="fe705a67-7ff1-4fed-994d-17bdab8f928a" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="698d2ce2-35ed-4a6c-8d19-62c56c7d3333" name="Server.Authentication.ClientUser" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="f51182cb-c921-4a52-a452-ab608867fd3c" />
+        <nodes>
+          <opaqueAction Id="fe705a67-7ff1-4fed-994d-17bdab8f928a" name="ExecuteFunction(string FunctionID, object[] Params)" isLeaf="false">
+            <elementDefinition Id="16506689-c6c2-4ccb-bf74-ba8b90dcf70c" />
+            <flowNodeTargets>
+              <controlFlow Id="cd1b753d-c4f6-4da4-9fdd-1947de71a0e8" isLeaf="false">
+                <opaqueActionMoniker Id="c55025aa-e21c-4c94-8919-9ad4a4c799a2" LastKnownName="Указан ли идентификатор устройства" />
+                <elementDefinition Id="e4ade83b-7414-4725-9c37-72d882b63f8d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="fe79167c-6268-437a-9309-a74928b397e4" name="Вычислить хэш от пароля" isLeaf="false">
+            <elementDefinition Id="64f88041-2d0c-4353-b25d-77d884b4351d" />
+            <flowNodeTargets>
+              <controlFlow Id="3612f2a9-13b9-479c-91d4-f9a4380cb9e1" isLeaf="false">
+                <opaqueActionMoniker Id="2cd9a9e7-3611-496b-8f4f-e819220c48fc" LastKnownName="Найти пользователя по логину и хэшу" />
+                <elementDefinition Id="2db38715-dd52-4e2a-91b2-bd3605dfad20" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="2cd9a9e7-3611-496b-8f4f-e819220c48fc" name="Найти пользователя по логину и хэшу" isLeaf="false">
+            <elementDefinition Id="26370b03-0a52-4ffc-b79c-5213a1a21301" />
+            <flowNodeTargets>
+              <controlFlow Id="71071c3a-490b-449d-a8c1-200abafbd93d" isLeaf="false">
+                <decisionNodeMoniker Id="b5b23d1f-2912-4c7c-8e07-39e9936c8076" LastKnownName="Найден?" />
+                <elementDefinition Id="c6616732-6327-41ee-92a9-5d6a729fb8ef" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="b5b23d1f-2912-4c7c-8e07-39e9936c8076" name="Найден?" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="925d8d52-397b-46f6-8575-06fd0581a508" />
+            <flowNodeTargets>
+              <controlFlow Id="2ce41287-dd32-4b26-b7d6-8d9b5de7499f" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" LastKnownName="Join11" />
+                <elementDefinition Id="9a574c23-658c-48bd-829d-daabf14a899f" />
+              </controlFlow>
+              <controlFlow Id="02fbfa0e-008f-487f-b735-9c78440e8bc4" guard="+" isLeaf="false">
+                <joinNodeMoniker Id="c97ba847-566a-46f2-a924-a97ce061bece" LastKnownName="Join111" />
+                <elementDefinition Id="60ef2423-3616-4687-89ad-f36f19ed2f8f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="a0f65c93-04c3-4282-8347-e79770403649" name="Сформировать ответ клиенту" isLeaf="false">
+            <elementDefinition Id="2fb39947-81f7-4660-836f-4e526e8044e4" />
+            <flowNodeTargets>
+              <controlFlow Id="977ded70-a5f6-455e-a5d0-4df4b08ec027" isLeaf="false">
+                <activityFinalNodeMoniker Id="1a6ad149-ff8e-4e4a-840e-9fe348410313" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="c0e2dea3-760d-496a-93fe-8059308bdcda" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f95f3ffe-583d-4c84-b5f1-335119ec8647" name="Сформировать отчет об ошибке" isLeaf="false">
+            <elementDefinition Id="63cf924e-0588-4421-89a9-7c064f38930f" />
+            <flowNodeTargets>
+              <controlFlow Id="93dc929c-0216-4a9d-91b7-a01e83bae5ca" isLeaf="false">
+                <joinNodeMoniker Id="334fac4f-7a7e-488e-9a18-9c7a36975c75" LastKnownName="Join112" />
+                <elementDefinition Id="3bd80110-7813-4f9d-b281-1852055b64c2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="38500e5c-3b85-4f86-862e-a7ec05e3ac91" name="Записать в таблицу ID устройства, ключ аутентификации устройства, ID пользователя, длидельность сессии" isLeaf="false">
+            <elementDefinition Id="05e7211e-5add-48d4-bcf3-9c2cd76aa06d" />
+            <flowNodeTargets>
+              <controlFlow Id="46b3a790-bf49-43d1-90f1-4ab9d2f386ef" isLeaf="false">
+                <joinNodeMoniker Id="334fac4f-7a7e-488e-9a18-9c7a36975c75" LastKnownName="Join112" />
+                <elementDefinition Id="43dbb896-a06c-4058-8b48-9821b2601987" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="1a6ad149-ff8e-4e4a-840e-9fe348410313" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="08821db3-bd78-4e3a-bbc5-e79d39505120" />
+          </activityFinalNode>
+          <initialNode Id="f57708a1-6019-4a37-ac99-b34b5fb64182" name="Initial1" isLeaf="false">
+            <elementDefinition Id="f01bfcb0-6dab-4908-95f3-6aa6d0fb8e22" />
+            <flowNodeTargets>
+              <controlFlow Id="5b9d8c7a-e65e-4ac9-a43a-6f943e4349c3" isLeaf="false">
+                <opaqueActionMoniker Id="fe705a67-7ff1-4fed-994d-17bdab8f928a" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+                <elementDefinition Id="a1845444-d15a-42bb-8731-8e6cd6a2ee69" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="c55025aa-e21c-4c94-8919-9ad4a4c799a2" name="Указан ли идентификатор устройства" isLeaf="false">
+            <elementDefinition Id="5744b788-80e9-4f85-8f1a-d270f364c0a3" />
+            <flowNodeTargets>
+              <controlFlow Id="3ca223a4-b64a-4018-87e3-b199be901744" isLeaf="false">
+                <decisionNodeMoniker Id="fdb13d7a-dacf-4727-b82a-6c7f4007f2f9" LastKnownName="Найден?1" />
+                <elementDefinition Id="f8fcddc6-1c10-492f-a55e-caa54321acbd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="fdb13d7a-dacf-4727-b82a-6c7f4007f2f9" name="Найден?1" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="c933dd42-bd10-4947-8c99-06554b2afbc7" />
+            <flowNodeTargets>
+              <controlFlow Id="81ebfbd5-7533-419b-bf42-7d81cba450f5" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="15136d18-b550-41bb-994b-f4177529e73e" LastKnownName="Найти устройство" />
+                <elementDefinition Id="2c3c3749-29d5-477d-a132-86c3a07988cb" />
+              </controlFlow>
+              <controlFlow Id="d1387b93-eb47-4d21-982e-33319771d35c" guard="-" isLeaf="false">
+                <opaqueActionMoniker Id="2aea1b7d-8680-4002-b69a-da67453db348" LastKnownName="Вычислить хэш от пароля" />
+                <elementDefinition Id="832a11a4-d666-4999-9d28-d8d9b9e697d1" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="15136d18-b550-41bb-994b-f4177529e73e" name="Найти устройство" isLeaf="false">
+            <elementDefinition Id="5945936a-813c-46be-9c1a-dde3917b662d" />
+            <flowNodeTargets>
+              <controlFlow Id="26691b10-2674-49c8-9abb-1c8f38831af9" isLeaf="false">
+                <decisionNodeMoniker Id="94c42217-a208-4e51-990c-ce9878c74809" LastKnownName="Найден?11" />
+                <elementDefinition Id="9969d2f6-aefd-42c0-a43b-b992a2da7db2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="94c42217-a208-4e51-990c-ce9878c74809" name="Найден?11" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="84a4e1ea-03fa-410d-b462-80298f115650" />
+            <flowNodeTargets>
+              <controlFlow Id="56b480a3-5c58-4969-b530-b920c287b7a1" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" LastKnownName="Join11" />
+                <elementDefinition Id="2428bbf1-82b3-466a-a73e-c909236b3655" />
+              </controlFlow>
+              <controlFlow Id="07070a5c-dda9-4383-a32c-bc8f1caac035" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="fe79167c-6268-437a-9309-a74928b397e4" LastKnownName="Вычислить хэш от пароля" />
+                <elementDefinition Id="043eca7f-0332-460d-a9bf-4053aeac916a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="34cb18b6-c9f3-46bf-bd82-5832d4a1e004" name="Определить, имеет ли право пользователь на аутентификацию устройств" isLeaf="false">
+            <elementDefinition Id="4abbe410-1e00-41f5-9996-b77c17905d14" />
+            <flowNodeTargets>
+              <controlFlow Id="4cc52282-6f63-4c35-b3e4-8768ce89f4e9" isLeaf="false">
+                <decisionNodeMoniker Id="492ce43d-ee1c-4809-9e76-f8d645eb4982" LastKnownName="Найден?2" />
+                <elementDefinition Id="5ddc024b-6619-4de1-a894-e9e8131cda39" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="492ce43d-ee1c-4809-9e76-f8d645eb4982" name="Найден?2" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="7d5d5872-ce5e-4bec-aef0-674b064c66b0" />
+            <flowNodeTargets>
+              <controlFlow Id="5b3a8695-63a4-4366-9624-4b3ab3102663" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="38500e5c-3b85-4f86-862e-a7ec05e3ac91" LastKnownName="Записать в таблицу ID устройства, ключ аутентификации устройства, ID пользователя, длидельность сессии" />
+                <elementDefinition Id="034d7010-04f1-4175-86cc-daa9654c0775" />
+              </controlFlow>
+              <controlFlow Id="7867ca3c-f401-45d4-8d1f-6deadeecf0f9" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" LastKnownName="Join11" />
+                <elementDefinition Id="a63bf91a-74e1-4ef8-a6ff-24cc3254c283" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="2aea1b7d-8680-4002-b69a-da67453db348" name="Вычислить хэш от пароля" isLeaf="false">
+            <elementDefinition Id="c75b1c93-d48f-43ed-ba14-ad5f2abcb6f5" />
+            <flowNodeTargets>
+              <controlFlow Id="639c029e-8ec7-4929-ba1f-4af661b62b30" isLeaf="false">
+                <opaqueActionMoniker Id="7cb8618a-23f0-47bb-afae-8eadbc0e1298" LastKnownName="Найти пользователя по логину и хэшу" />
+                <elementDefinition Id="7c4c3d98-7472-46c9-922a-a901ee12885c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="7cb8618a-23f0-47bb-afae-8eadbc0e1298" name="Найти пользователя по логину и хэшу" isLeaf="false">
+            <elementDefinition Id="493306df-58d9-433c-a50a-b33512a684a1" />
+            <flowNodeTargets>
+              <controlFlow Id="e198111e-dc05-4da9-a34a-a2f764ef9bcc" isLeaf="false">
+                <decisionNodeMoniker Id="54b8bcea-2f2e-44cd-8918-b9fddf7c7aa0" LastKnownName="Найден?3" />
+                <elementDefinition Id="4bd542fe-8500-4633-a4df-27388b35f402" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="54b8bcea-2f2e-44cd-8918-b9fddf7c7aa0" name="Найден?3" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="96a246c1-3cdf-4a37-8208-c7060fc2a63e" />
+            <flowNodeTargets>
+              <controlFlow Id="db06eac6-c595-49b3-a785-df6d38c01eca" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" LastKnownName="Join11" />
+                <elementDefinition Id="61d85113-04dc-4437-853e-aa0125cc1fda" />
+              </controlFlow>
+              <controlFlow Id="01c21b88-de4f-4422-b512-c33a80811bd8" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="1ba67734-4bac-4595-b6c9-dc5f8325bba5" LastKnownName="Определить, имеет ли право пользователь на создание новых устройств" />
+                <elementDefinition Id="a091d337-b6fb-4530-835e-c7240488f7fe" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="1ba67734-4bac-4595-b6c9-dc5f8325bba5" name="Определить, имеет ли право пользователь на создание новых устройств" isLeaf="false">
+            <elementDefinition Id="19bf4658-9f17-4f7d-9a14-2bbdd04772b1" />
+            <flowNodeTargets>
+              <controlFlow Id="a2c79fb0-097a-4b86-948d-d992bc3651cb" isLeaf="false">
+                <decisionNodeMoniker Id="9f5016db-c1c5-4f36-b2cb-2d7a47b0805c" LastKnownName="Найден?31" />
+                <elementDefinition Id="5496cbff-19c3-40d8-9c95-f23c443958a8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="9f5016db-c1c5-4f36-b2cb-2d7a47b0805c" name="Найден?31" isLeaf="false">
+            <description>Найден?</description>
+            <elementDefinition Id="19cd3fd7-197d-443c-81da-bff59acbcbed" />
+            <flowNodeTargets>
+              <controlFlow Id="fed99602-f295-415f-bb43-579cd1d0a17d" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" LastKnownName="Join11" />
+                <elementDefinition Id="fe11fde9-1b28-4f66-800b-7ab401e5663e" />
+              </controlFlow>
+              <controlFlow Id="bebdf73d-3dec-4e7f-8afb-b38471507140" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="4f37d502-0b72-4cc7-ba8f-5206150cfc84" LastKnownName="Создать новое устройство" />
+                <elementDefinition Id="36965ddc-0f18-4b7c-a089-1b1efc041952" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="4f37d502-0b72-4cc7-ba8f-5206150cfc84" name="Создать новое устройство" isLeaf="false">
+            <elementDefinition Id="440df369-b8e4-422e-ae3a-790ed0796306" />
+            <flowNodeTargets>
+              <controlFlow Id="be907191-24f1-4810-bc0d-37a2dd070572" isLeaf="false">
+                <joinNodeMoniker Id="c97ba847-566a-46f2-a924-a97ce061bece" LastKnownName="Join111" />
+                <elementDefinition Id="b5f09861-6dcc-4264-86bf-0d34ae8091ba" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="038d21df-b0a0-4e78-bd6c-13d572e84d0d" name="Join11" isLeaf="false">
+            <elementDefinition Id="2fc62591-a4c1-469e-9e18-dcf057f6cd0c" />
+            <flowNodeTargets>
+              <controlFlow Id="99e6f0fd-c125-4d45-b55f-6cca6857a446" isLeaf="false">
+                <opaqueActionMoniker Id="f95f3ffe-583d-4c84-b5f1-335119ec8647" LastKnownName="Сформировать отчет об ошибке" />
+                <elementDefinition Id="002c5469-2ae7-498e-a146-0f41b13f94dd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode Id="c97ba847-566a-46f2-a924-a97ce061bece" name="Join111" isLeaf="false">
+            <elementDefinition Id="d12b4c6f-1d35-4c6e-9ee7-b98f95b612bf" />
+            <flowNodeTargets>
+              <controlFlow Id="ea765d32-7b70-4b39-8fd6-7475f777ca27" isLeaf="false">
+                <opaqueActionMoniker Id="34cb18b6-c9f3-46bf-bd82-5832d4a1e004" LastKnownName="Определить, имеет ли право пользователь на аутентификацию устройств" />
+                <elementDefinition Id="7306db1e-8a75-48b9-83c0-fce95699a8e5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode Id="334fac4f-7a7e-488e-9a18-9c7a36975c75" name="Join112" isLeaf="false">
+            <elementDefinition Id="47d27d71-bae3-4100-afa2-4317c4fac9be" />
+            <flowNodeTargets>
+              <controlFlow Id="d0452f1a-fcfc-486a-80f6-226d01fd1442" isLeaf="false">
+                <opaqueActionMoniker Id="a0f65c93-04c3-4282-8347-e79770403649" LastKnownName="Сформировать ответ клиенту" />
+                <elementDefinition Id="28e612f8-532c-4c65-afd1-9c89c5c6f9dc" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="5f2f6106-cd97-4bc9-b48b-800b02526388" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e810be35-c33e-44e9-bb1f-19f2f75b115e">
+        <profileInstance Id="b9bf409b-a145-45c9-ba4f-00aa49207720" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="71b9371e-1d43-4b2a-a219-e37a78cb12b7">
+        <profileInstance Id="848220f8-765f-4883-942b-70430ddf6cc4" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

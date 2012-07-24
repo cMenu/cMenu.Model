@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c93bffc8-e4f7-4a98-b9d3-da21f66baeb4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="ee39588c-5e6b-4fa2-86dd-c67ec4caa4d4" name="Comment1">
+      <body>Компонента статистики предоставляет функционал по журналированию событий в системе, выборке статистической информации и т.д.
+Посредством использоваения компоненты взаимодействия с БД, компонента статистики может общаться с удаленной БД.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="5b6798ff-0610-492b-9b67-78e11a633521" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="5b6798ff-0610-492b-9b67-78e11a633521" name="Server">
+      <childLayers>
+        <layer Id="991bab00-d25b-411b-944c-29951db9e3fc" name="Statistics component">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="61d9e1e4-894b-4e0f-920d-df5e0e690191" direction="Bidirectional">
+              <layerMoniker Id="1fbaee6a-94a1-4c2b-a5f8-16ca3013a57b" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="1fbaee6a-94a1-4c2b-a5f8-16ca3013a57b" name="DB Communication component">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="457abbd5-683a-425d-94ed-0940d15cc7b0" direction="Bidirectional">
+              <layerMoniker Id="a1b3deea-dab1-4056-a518-ea0fe52bcf75" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="a1b3deea-dab1-4056-a518-ea0fe52bcf75" name="Database" />
+  </layers>
+</layerModel>

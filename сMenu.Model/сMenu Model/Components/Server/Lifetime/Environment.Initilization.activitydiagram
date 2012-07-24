@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ec582017-2468-427c-b2ee-f627f3c71914" name="Environment.Initilization" linkedPackageId="5ce9aad9-845d-4961-a891-16bd23589308" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="7e56d2d4-e921-48a7-a09d-13d51d95d419" name="Environment.Initilization" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="3ff79510-4e18-4da7-b4d6-06c39a9e84fe" />
+        <nodes>
+          <initialNode Id="2805a343-4361-4b03-8070-582bdf5eb747" name="Initial1" isLeaf="false">
+            <elementDefinition Id="4c120883-3a96-407f-ab6a-bdcc4a7667ab" />
+            <flowNodeTargets>
+              <controlFlow Id="57fc1497-e55c-4406-8fc2-641e38debc69" isLeaf="false">
+                <opaqueActionMoniker Id="d2f86525-5da0-4340-83fa-a27d9fcb56da" LastKnownName="Соединение с удаленной базой данных" />
+                <elementDefinition Id="696ee669-164d-4927-8653-e51676e0e00b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="d2f86525-5da0-4340-83fa-a27d9fcb56da" name="Соединение с удаленной базой данных" isLeaf="false">
+            <elementDefinition Id="f2fa5a4b-f9c4-4f46-b9d6-8525a24239e2" />
+            <flowNodeTargets>
+              <controlFlow Id="16eec5ff-5d83-42c7-9460-ee04c49f1543" isLeaf="false">
+                <decisionNodeMoniker Id="ba745a2a-1812-4bb5-8052-72e6029237d6" LastKnownName="Decision1" />
+                <elementDefinition Id="247684d1-7cd2-4d31-b2b1-8767ce5e1df6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="ba745a2a-1812-4bb5-8052-72e6029237d6" name="Decision1" isLeaf="false">
+            <elementDefinition Id="95f486df-eec6-4a17-824e-d52fde7a9955" />
+            <flowNodeTargets>
+              <controlFlow Id="edae8628-e76f-42c2-9222-3672164a4a73" guard="-" isLeaf="false">
+                <opaqueActionMoniker Id="5bba9f0e-384c-4f71-8f63-9e7849284986" LastKnownName="Отрицательный результат" />
+                <elementDefinition Id="dc1f0cf6-90b7-4167-addd-98a9e8ddebb1" />
+              </controlFlow>
+              <controlFlow Id="aca4159b-fbfc-4473-bbfe-ea99c2c628be" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="a5d1eedb-6282-49a3-9584-5ff6b253ad8d" LastKnownName="Соединение с удаленным сервером в сети Интернете" />
+                <elementDefinition Id="7de1beb2-2031-47f1-8187-655770360b63" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="5bba9f0e-384c-4f71-8f63-9e7849284986" name="Отрицательный результат" isLeaf="false">
+            <elementDefinition Id="0d0f8515-87e1-44bc-9cd0-5471ff845f37" />
+            <flowNodeTargets>
+              <controlFlow Id="995133c0-5887-4ae2-907a-f4a2b7b35a61" isLeaf="false">
+                <joinNodeMoniker Id="8a3b1d0e-3c96-4721-b6b6-ce92288fee3e" LastKnownName="Join111" />
+                <elementDefinition Id="5991dbd3-65fa-4d8d-80b9-867bfb9d48da" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a5d1eedb-6282-49a3-9584-5ff6b253ad8d" name="Соединение с удаленным сервером в сети Интернете" isLeaf="false">
+            <elementDefinition Id="ea677793-fb6f-4b07-835c-2ecf1af24821" />
+            <flowNodeTargets>
+              <controlFlow Id="e4396c0b-fcde-4b5a-a8b6-9b58efcc85cc" isLeaf="false">
+                <decisionNodeMoniker Id="e190cffc-f82b-4ac1-9121-9f1ea013c9f4" LastKnownName="Decision11" />
+                <elementDefinition Id="c30d0619-c0eb-479c-b3b5-4e6dc77ba3e8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="e190cffc-f82b-4ac1-9121-9f1ea013c9f4" name="Decision11" isLeaf="false">
+            <elementDefinition Id="6d2f5456-1e58-406b-a5fd-031a79135635" />
+            <flowNodeTargets>
+              <controlFlow Id="478ec79e-76a2-46a1-94bf-02d1d3f459b4" guard="-" isLeaf="false">
+                <opaqueActionMoniker Id="1a01e78c-091c-4271-8bc9-b218228af7c3" LastKnownName="Уведомление пользователя" />
+                <elementDefinition Id="96a561f2-c020-4a09-b11a-c75a094950f7" />
+              </controlFlow>
+              <controlFlow Id="d092af84-ded3-45a3-bccd-ecb6dc56de3e" guard="+" isLeaf="false">
+                <joinNodeMoniker Id="44def051-3146-4152-b38c-406e1780902d" LastKnownName="Join1" />
+                <elementDefinition Id="28438b90-5f89-4a56-8c02-73453fc4dbaf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="1a01e78c-091c-4271-8bc9-b218228af7c3" name="Уведомление пользователя" isLeaf="false">
+            <elementDefinition Id="719c1a14-2ea9-42fe-a54b-fe07ecef3953" />
+            <flowNodeTargets>
+              <controlFlow Id="0a1562b4-d1e9-4fed-b758-7924a28c6869" isLeaf="false">
+                <joinNodeMoniker Id="44def051-3146-4152-b38c-406e1780902d" LastKnownName="Join1" />
+                <elementDefinition Id="4606ef30-d4f6-41ee-969d-12dc7d8add75" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="edb2e015-1503-4e03-8fd4-fb763e38627b" name="Запись состояния в журнал статистики" isLeaf="false">
+            <elementDefinition Id="8f0aa0c1-64a9-41c2-855b-97ee2b472c80" />
+            <flowNodeTargets>
+              <controlFlow Id="d9afbdae-c564-4bde-8584-26784c622a80" isLeaf="false">
+                <decisionNodeMoniker Id="e3eae77c-a038-4ade-b5e2-59c73299aba3" LastKnownName="Decision111" />
+                <elementDefinition Id="5cef626b-1107-4b8b-a3f0-94223f7276d6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="44def051-3146-4152-b38c-406e1780902d" name="Join1" isLeaf="false">
+            <elementDefinition Id="1233d91c-cef2-4739-8df2-501e925d5008" />
+            <flowNodeTargets>
+              <controlFlow Id="f375c1ec-d5f3-48c4-a18a-8f7b53011445" isLeaf="false">
+                <opaqueActionMoniker Id="edb2e015-1503-4e03-8fd4-fb763e38627b" LastKnownName="Запись состояния в журнал статистики" />
+                <elementDefinition Id="a5a7ca7b-beeb-4ed3-88cd-7757012389c9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <decisionNode Id="e3eae77c-a038-4ade-b5e2-59c73299aba3" name="Decision111" isLeaf="false">
+            <elementDefinition Id="b7633137-8fe9-4a12-a68f-de82132f6f2a" />
+            <flowNodeTargets>
+              <controlFlow Id="72558462-68ba-42c8-8c4a-e9f492335764" guard="-" isLeaf="false">
+                <opaqueActionMoniker Id="3cabfbe2-6294-402a-ae9b-3e24f8cf6045" LastKnownName="Уведомление пользователя" />
+                <elementDefinition Id="16db7026-ec8c-4c9d-b2de-b4f4cf8ec86e" />
+              </controlFlow>
+              <controlFlow Id="e070b6b5-d295-4045-8eef-4c9e28c980a4" guard="+" isLeaf="false">
+                <joinNodeMoniker Id="3c0b5073-1a14-4012-9e23-b8ba10154d61" LastKnownName="Join11" />
+                <elementDefinition Id="72d3ff8b-b10b-4eed-8f36-ea2f509c0014" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="3cabfbe2-6294-402a-ae9b-3e24f8cf6045" name="Уведомление пользователя" isLeaf="false">
+            <elementDefinition Id="6f29f85b-1bef-4796-97cb-1cad10f274ff" />
+            <flowNodeTargets>
+              <controlFlow Id="7b6de3cf-add8-4114-b22a-51dc02d0cb45" isLeaf="false">
+                <joinNodeMoniker Id="3c0b5073-1a14-4012-9e23-b8ba10154d61" LastKnownName="Join11" />
+                <elementDefinition Id="5b94e766-3848-4f8b-bcd0-91538c8bc5bf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="5f63cf60-3a76-4ea0-938e-3fa1eed68700" name="Положительный результат" isLeaf="false">
+            <elementDefinition Id="8b49be10-9a54-4ff2-98a6-e27be0a2eb77" />
+            <flowNodeTargets>
+              <controlFlow Id="cd4efdfa-0fcd-47f4-8e32-933c023b2be7" isLeaf="false">
+                <joinNodeMoniker Id="8a3b1d0e-3c96-4721-b6b6-ce92288fee3e" LastKnownName="Join111" />
+                <elementDefinition Id="18fbd2b5-9a47-459b-a920-f231a859c532" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="3c0b5073-1a14-4012-9e23-b8ba10154d61" name="Join11" isLeaf="false">
+            <elementDefinition Id="aead8cf8-3733-4598-b663-63d080c86126" />
+            <flowNodeTargets>
+              <controlFlow Id="85f539e5-49c0-4f9c-b150-aad597c020c6" isLeaf="false">
+                <opaqueActionMoniker Id="5f63cf60-3a76-4ea0-938e-3fa1eed68700" LastKnownName="Положительный результат" />
+                <elementDefinition Id="92814bc4-7229-4828-9761-c78f5ce28f57" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode Id="ad2afb5e-44cd-4729-8ed9-b7726576a573" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="8c832896-f6b7-4ee1-aacc-3cc4f5f84a8f" />
+          </activityFinalNode>
+          <joinNode Id="8a3b1d0e-3c96-4721-b6b6-ce92288fee3e" name="Join111" isLeaf="false">
+            <elementDefinition Id="55891f47-cd07-447a-ac20-0bba900518b6" />
+            <flowNodeTargets>
+              <controlFlow Id="b0c7b65f-15b4-4482-8162-001c7a7a696e" isLeaf="false">
+                <activityFinalNodeMoniker Id="ad2afb5e-44cd-4729-8ed9-b7726576a573" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="e645b44b-7bc5-4e84-ac20-3f65e22aa418" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="5ce9aad9-845d-4961-a891-16bd23589308" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="f78beb25-2932-41dc-926a-ca2036366cc5">
+        <profileInstance Id="6bcc95f2-a726-4248-9b4e-c144de9e0c8b" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="3f6699c8-6459-4b31-ac87-7bc0f627c3df">
+        <profileInstance Id="74334cfc-a001-4a8e-ac36-0976b97e1229" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

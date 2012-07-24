@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f668a5e9-b61b-4e99-9959-c8314c4c87ec}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>iMenu Model</Name>
+    <RootNamespace>iMenu Model</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Content Include="Components\Server\Components\Function Execution Environment\Function Execution Env.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Components\Function Execution Environment\Function Execution Env.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Function Execution Environment\Function Execution Env.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\Authentication\Server.Functions.Authentication.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\Authentication\Server.Authentication.ClientUser.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\Authentication\Server.Functions.Authentication.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\CallOficiant\Server.Functions.CallOficiant.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\CallOficiant\Server.Functions.CallOfficiant.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\CallOficiant\Server.Functions.CallOficiant.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetAdvertisement\Server.Functions.GetAdvertisement.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetAdvertisement\Server.Functions.GetAdvertisement.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetAdvertisement\Server.Functions.GetAdvertisement.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetCategoryData\Server.Functions.GetCategoryData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetCategoryData\Server.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetCategoryData\Server.Functions.GetCategoryData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetCurrentMenuData\Server.Functions.GetCurrentMenuData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetCurrentMenuData\Server.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetCurrentMenuData\Server.Functions.GetCurrentMenuData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetMediaResource\Server.Functions.GetMediaResource.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetMediaResource\Server.Functions.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetMediaResource\Server.Functions.GetMediaResource.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetOrderData\Server.Functions.GetOrderData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetOrderData\Server.Functions.GetOrderData.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetOrderData\Server.Functions.GetOrderData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\GetServiceData\Server.Functions.GetServiceData.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\GetServiceData\Server.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\GetServiceData\Server.Functions.GetServiceData.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Functions\MakeOrder\Server.Functions.MakeOrder.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Functions\MakeOrder\Server.Functions.MakeOrder.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Functions\MakeOrder\Server.Functions.MakeOrder.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Communication.Initialize.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Communication.Initialize.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Lifetime\Communication.Initialize.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Environment.Initilization.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Environment.Initilization.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Lifetime\Environment.Initilization.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Lifetime.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Lifetime\Lifetime.Lifetime.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Lifetime\Lifetime.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Lifetime\ExecuteFunction.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Lifetime\ExecuteFunction.ExecuteFunction.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Lifetime\ExecuteFunction.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Components\Server\Server.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Components\Server\Server.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Server.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Global\Entities\Entities.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Global\Entities\Entities.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Global\Entities\Entities.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Global\Global.Interaction.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Global\Global.Authentication.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Global\Global.Interaction.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Global\Global.Interaction.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Global\Global.Main.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Global\Global.Interaction.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="Global\Global.User.Actions.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Global\Global.User.Interaction.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1227.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_2001.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_2001.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1227.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1233.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1235.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1236.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1237.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1755.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1757.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1802.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1804.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1806.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1811.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1826.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1831.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2001.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="Components\Client" />
+    <Folder Include="Components\Client\Management Tool" />
+    <Folder Include="Components\Client\Internal Client" />
+    <Folder Include="Components\Client\Web Client" />
+    <Folder Include="Components\Notification" />
+    <Folder Include="Components\Server\" />
+    <Folder Include="Components\Server\Components\Function Execution Environment" />
+    <Folder Include="Components\Server\Components\Function Execution" />
+    <Folder Include="Components\Server\Components\Communication" />
+    <Folder Include="Components\Server\Components\DB Communication" />
+    <Folder Include="Components\Server\Components\Administration" />
+    <Folder Include="Components\Server\Components\Statistics" />
+    <Folder Include="Components\Server\Functions" />
+    <Folder Include="Components\Server\Components" />
+    <Folder Include="Components\Server\Functions\Authentication" />
+    <Folder Include="Components\Server\Functions\GetCurrentMenuData" />
+    <Folder Include="Components\Server\Functions\GetCategoryData" />
+    <Folder Include="Components\Server\Functions\GetServiceData" />
+    <Folder Include="Components\Server\Functions\GetMediaResource" />
+    <Folder Include="Components\Server\Functions\MakeOrder" />
+    <Folder Include="Components\Server\Functions\GetOrderData" />
+    <Folder Include="Components\Server\Functions\CallOficiant" />
+    <Folder Include="Components\Server\Functions\GetAdvertisement" />
+    <Folder Include="Components\Server\Lifetime" />
+    <Folder Include="Global\Entities\" />
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\iMenu Model.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="Global" />
+    <Folder Include="Components" />
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="Components\Notification\Notification.UIInteraction.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Notification\Notification.UIInteraction.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Notification\Notification.UIInteraction.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Notification\Notification.UIInteraction.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Notification\Notification.UIInteraction.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Notification\Notification.UINotification.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Notification\Notification.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Notification\Notification.UINotification.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Notification\Notification.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Notification\Notification.UINotification.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Communication\Communication.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Server\Components\Communication\Communication.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Communication\Communication.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Communication\Communication.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Communication\Communication.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\DB Communication\DB Communication.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Server\Components\DB Communication\DB Communication.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\DB Communication\DB Communication.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\DB Communication\DB Communication.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\DB Communication\DB Communication.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Function Execution\Function Execution.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Server\Components\Function Execution\Function Execution.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Function Execution\Function Execution.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Function Execution\Function Execution.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Function Execution\Function Execution.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Statistics\Statistics.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Components\Server\Components\Statistics\Statistics.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Statistics\Statistics.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Components\Server\Components\Statistics\Statistics.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Components\Server\Components\Statistics\Statistics.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Global\Global.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Global\Global.Global.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Global\Global.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Global\Global.Global.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Global\Global.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm13="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="49b26a9d-b8d1-4a43-8102-1800219f6c51" name="Communication.Initialize" linkedPackageId="d6775541-5892-4289-867f-f07765d1e9bc" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="59ec1910-dbb1-41cb-ae0b-00008ccf6435">
+      <profileInstance Id="2acec87c-4f0f-4d3e-8e8d-ea77f66411c9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c89090c8-9240-4af4-bb64-82562c1d35a4">
+      <profileInstance Id="f27384eb-d23f-4e5c-bf42-b8804a5b4b79" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="ed3fc5b3-0e3c-46f5-9439-44c57abe59a9" name="Communication.Initialize" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="7af4b27b-ef01-4735-a3b6-94cf006a7960" />
+        <nodes>
+          <initialNode Id="ce14fa5d-f962-426a-826d-aa452768eafe" name="Initial1" isLeaf="false">
+            <elementDefinition Id="7c621c7f-c8fd-4226-bdb9-6b73ad9c3be4" />
+            <flowNodeTargets>
+              <controlFlow Id="0db2ae37-3e38-4198-9050-856aa131462e" isLeaf="false">
+                <opaqueActionMoniker Id="f986b945-4a9b-41d0-acf9-9223637cf6ac" LastKnownName="Загрузка из конфигурации адреса сервера" />
+                <elementDefinition Id="44f1e2b1-48e5-46a6-9657-dfbef28a951e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="f986b945-4a9b-41d0-acf9-9223637cf6ac" name="Загрузка из конфигурации адреса сервера" isLeaf="false">
+            <elementDefinition Id="64fb2ad4-5acf-4958-aff1-98fad64c80f5" />
+            <flowNodeTargets>
+              <controlFlow Id="44cfdab1-058d-4ffc-821c-30f9ea749219" isLeaf="false">
+                <decisionNodeMoniker Id="26caec98-34e4-4129-84fe-bec581817f55" LastKnownName="Decision1" />
+                <elementDefinition Id="7e34e15e-0108-4b7a-9e56-e656489bff53" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="26caec98-34e4-4129-84fe-bec581817f55" name="Decision1" isLeaf="false">
+            <elementDefinition Id="4f93f80b-9cd9-4e5d-bcc3-b26bbee26d3c" />
+            <flowNodeTargets>
+              <controlFlow Id="16cd5043-64bb-4802-a50e-61a9935d23ed" guard="-" isLeaf="false">
+                <opaqueActionMoniker Id="46aa103b-ab3f-4d66-ac95-15b12c694c84" LastKnownName="Загрузка настроек по умолчанию" />
+                <elementDefinition Id="1534e4d3-6bb8-4b77-aaa7-323564f38ec5" />
+              </controlFlow>
+              <controlFlow Id="e170b300-a13b-4bf9-884a-76b77bccfd44" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="7868a7cf-ef3b-4e6d-b35f-6da98e356513" LastKnownName="Установка разрешений на взаимодействие с сервисом" />
+                <elementDefinition Id="b415bff9-1259-435f-8916-89662b74d10d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="46aa103b-ab3f-4d66-ac95-15b12c694c84" name="Загрузка настроек по умолчанию" isLeaf="false">
+            <elementDefinition Id="180febf8-cfb9-4df0-aee3-69752feda9b7" />
+            <flowNodeTargets>
+              <controlFlow Id="854c6371-cef6-4504-bdd1-68598c8dd6db" isLeaf="false">
+                <opaqueActionMoniker Id="a19731e4-eb76-4adc-a9d4-f600ff4e1ccf" LastKnownName="Уведомление пользователя" />
+                <elementDefinition Id="d75b998c-98ce-4225-9106-fed6f17592ab" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a19731e4-eb76-4adc-a9d4-f600ff4e1ccf" name="Уведомление пользователя" isLeaf="false">
+            <elementDefinition Id="37d0eb19-1168-4dcd-a873-02d4fce258c3" />
+            <flowNodeTargets>
+              <controlFlow Id="97e7a856-633c-43bd-a4dc-452ba0768099" isLeaf="false">
+                <joinNodeMoniker Id="f548e65b-de73-435a-844e-3f43ce4b1502" LastKnownName="Join11" />
+                <elementDefinition Id="fee7eb04-431f-4d3d-9db3-89fbefc9924a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="7868a7cf-ef3b-4e6d-b35f-6da98e356513" name="Установка разрешений на взаимодействие с сервисом" isLeaf="false">
+            <elementDefinition Id="c9db11c1-1242-4bf6-9356-1b33df0bc71f" />
+            <flowNodeTargets>
+              <controlFlow Id="3c76a8ce-6b08-492d-bc16-af501c454c97" isLeaf="false">
+                <joinNodeMoniker Id="f548e65b-de73-435a-844e-3f43ce4b1502" LastKnownName="Join11" />
+                <elementDefinition Id="706ea95a-52a0-4f89-bedd-19eb7c68cdc0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="f548e65b-de73-435a-844e-3f43ce4b1502" name="Join11" isLeaf="false">
+            <elementDefinition Id="8c5685aa-076d-4c5d-8c1a-8a7e60c77bb7" />
+            <flowNodeTargets>
+              <controlFlow Id="c239cb7c-9281-448f-b156-d5d95780088b" isLeaf="false">
+                <activityFinalNodeMoniker Id="81bb8d2c-06e5-4e6f-ae4c-4a2e866f00e1" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="a6677d0f-0cdb-420f-8fbe-0ce6b5fda65e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode Id="81bb8d2c-06e5-4e6f-ae4c-4a2e866f00e1" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="294f767f-f0e2-44bd-bb8e-62bfad38cfdb" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="d6775541-5892-4289-867f-f07765d1e9bc" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+  </package>
+</activityRootModel>

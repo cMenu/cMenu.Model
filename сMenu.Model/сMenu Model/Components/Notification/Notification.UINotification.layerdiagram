@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="7adf961d-ad82-43b3-a079-000a4a6f09c0" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="dc50158d-0742-4968-8760-57193c7bd7a2" name="Comment1">
+      <body>Notification Application - внешнее приложение, используемое для уведомления пользователей системы о произошедших событиях.
+Кроме основной функции отправки уведомлений, приложение может обрабатывать ответ пользователя и передавать результат обратно на "сервер" (опционально).
+
+0. Из сети поступает запрос об уведомлении.
+1. Запрос обрабатывается модулем взаимодействия.
+2. Запрос передается на вход среде уведомления, которая имеет права на вызов функций GUI.
+3. Запрос передает на уровень GUI.
+4. При необходимости обрабатывается ответ пользователя.
+5. Ответ передается по всем уровням обратно и возвращается как результат запроса "сервера".
+</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="27b1c1bf-a1d9-4b6e-a8a3-b24c731a7d35" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="27b1c1bf-a1d9-4b6e-a8a3-b24c731a7d35" name="Notification Application">
+      <childLayers>
+        <layer Id="fd8cec08-a646-4555-ba39-51504fb4cfb3" name="Communication Component">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="8919bf54-57a2-4d76-bcb6-c38721d652f5" direction="Forward">
+              <layerMoniker Id="da0a6caa-b835-404b-8fe8-ba124d8d7166" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="6c5990f9-477e-4001-9ed5-fb962f036d00" direction="Forward">
+              <layerMoniker Id="1be00424-de27-441a-8c19-da273e0df92e" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="da0a6caa-b835-404b-8fe8-ba124d8d7166" name="Notification Environemt">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="06024945-9ec7-435f-80a2-4af02b46baf0" direction="Forward">
+              <layerMoniker Id="eafd5d9c-9fb5-42b3-af94-25215f5581ae" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="f78b9729-a64c-4d15-834c-64942f24d60b" direction="Forward">
+              <layerMoniker Id="fd8cec08-a646-4555-ba39-51504fb4cfb3" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="eafd5d9c-9fb5-42b3-af94-25215f5581ae" name="User Interface">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="cd7639ed-5e59-4643-a9ff-2f8195902663" direction="Forward">
+              <layerMoniker Id="da0a6caa-b835-404b-8fe8-ba124d8d7166" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="1be00424-de27-441a-8c19-da273e0df92e" name="External Query">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="5a91ac2e-b3d8-4ab2-9bc9-eb7f3ece42b0" direction="Forward">
+          <layerMoniker Id="fd8cec08-a646-4555-ba39-51504fb4cfb3" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

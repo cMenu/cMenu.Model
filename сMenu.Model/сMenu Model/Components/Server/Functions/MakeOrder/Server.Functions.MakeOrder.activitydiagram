@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="929f1772-a86e-4d45-8fb2-44051c33c1c6" name="Server.Functions.MakeOrder" linkedPackageId="28f6e3f7-e9d2-49ef-912f-62c92beb690e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="0fd7ea4c-27a4-40eb-9e34-052a9f28ad95">
+      <elementDefinition Id="b0317496-ef87-41f7-a4bb-ab33150ae2ba" />
+      <body>Параметр Parameters должен содержать следующие значения:
+0. PARAM_DEVICE_ID - ID устройства.
+1. PARAM_AUTH_TOKEN - ключ аутентификации устройства.
+2. PARAM_DEVICE_MAC - MAC адрес устройства.
+3. PARAM_ORDER - объект типа "Order", сериализованный в формате JSON (XML).
+</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="23265ed7-0902-4005-89b4-555db30dfa38" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="1f65949a-f481-44af-b6e8-500e9fe690c0" name="Server.Functions.MakeOrder" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a83197d7-d96d-43a9-9258-be68acc745ea" />
+        <nodes>
+          <initialNode Id="b9dd0414-d2fb-4176-8593-873ab8c3140d" name="Initial1" isLeaf="false">
+            <elementDefinition Id="2f594625-5a0b-4ad8-926c-2b20a1da5d60" />
+            <flowNodeTargets>
+              <controlFlow Id="0a7fcc91-f9d7-4f06-a596-0a688c826ae1" isLeaf="false">
+                <opaqueActionMoniker Id="23265ed7-0902-4005-89b4-555db30dfa38" LastKnownName="ExecuteFunction(string FunctionID, object[] Params)" />
+                <elementDefinition Id="884c993c-e76b-4515-a93c-84fa0e3a0224" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="23265ed7-0902-4005-89b4-555db30dfa38" name="ExecuteFunction(string FunctionID, object[] Params)" isLeaf="false">
+            <elementDefinition Id="f21c39b5-3e27-4153-9e4c-d247be7cfdcf" />
+            <flowNodeTargets>
+              <controlFlow Id="dc6af4dc-7cf9-4f7c-8c0d-7e5ce5499ef2" isLeaf="false">
+                <opaqueActionMoniker Id="14bb4201-589d-4ceb-b2e8-28e4477c3516" LastKnownName="Десериализовать обект типа &quot;Order&quot;" />
+                <elementDefinition Id="a9ad7834-aba2-478d-95de-3066bc4f3344" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="14bb4201-589d-4ceb-b2e8-28e4477c3516" name="Десериализовать обект типа &quot;Order&quot;" isLeaf="false">
+            <elementDefinition Id="b5b7697a-df52-44c7-aedc-cfca132999bb" />
+            <flowNodeTargets>
+              <controlFlow Id="f29efc1b-fea4-4267-8b92-4dbc12134c7f" isLeaf="false">
+                <decisionNodeMoniker Id="40426ea7-a5ad-42fb-beda-f545aca1c7c7" LastKnownName="Найдена?1" />
+                <elementDefinition Id="1a5c1c86-5569-42ef-916a-d439f1ee3b19" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="40426ea7-a5ad-42fb-beda-f545aca1c7c7" name="Найдена?1" isLeaf="false">
+            <description>Найдена?</description>
+            <elementDefinition Id="d5369c41-a7c4-4d04-85c4-cd19be5df9ab" />
+            <flowNodeTargets>
+              <controlFlow Id="0905493c-fda0-4d9a-a775-ae3ec68c2ba2" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="d4fdb869-c220-4862-9c9c-d6b362f42127" LastKnownName="Join11" />
+                <elementDefinition Id="28e2c001-fccd-4887-ad7d-c7664c555242" />
+              </controlFlow>
+              <controlFlow Id="d6965631-e133-4dfd-8ecf-81abf0da0cb6" guard="+" isLeaf="false">
+                <opaqueActionMoniker Id="795f9cad-75e3-4100-b099-0664e66fa333" LastKnownName="Имеет ли пользователь право на редактирование списка заказов" />
+                <elementDefinition Id="d31857ab-d326-44ab-b68f-bb73d07bd2e2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <joinNode Id="d4fdb869-c220-4862-9c9c-d6b362f42127" name="Join11" isLeaf="false">
+            <elementDefinition Id="e58050ac-5f0b-4ed0-b1a6-20ac6ca7f3f2" />
+            <flowNodeTargets>
+              <controlFlow Id="91f2bc03-41fa-4685-a3d5-a40f3c19ae46" isLeaf="false">
+                <opaqueActionMoniker Id="aa204a00-da3d-4401-8b47-228ff00f66b9" LastKnownName="Сформировать отчет об ошибке" />
+                <elementDefinition Id="ceaf6298-be8c-42e5-82ef-175ec10355f2" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="aa204a00-da3d-4401-8b47-228ff00f66b9" name="Сформировать отчет об ошибке" isLeaf="false">
+            <elementDefinition Id="0b061944-c86f-45e6-be53-4255d61152cf" />
+            <flowNodeTargets>
+              <controlFlow Id="0b4a76f3-205a-46a4-b6dc-8659f5408a2d" isLeaf="false">
+                <joinNodeMoniker Id="f250fba6-dd63-4b39-bee9-f60bf799e83e" LastKnownName="Join112" />
+                <elementDefinition Id="ec6ee4ce-c5f8-49a8-9fdc-33d38723c6e3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="f250fba6-dd63-4b39-bee9-f60bf799e83e" name="Join112" isLeaf="false">
+            <elementDefinition Id="f97c145f-31db-43ae-8927-5d77d1596233" />
+            <flowNodeTargets>
+              <controlFlow Id="8d2705d2-25d6-4555-af44-1dcebb35120b" isLeaf="false">
+                <opaqueActionMoniker Id="dc0a69f8-7051-4404-a348-202ca9fcf59a" LastKnownName="Сформировать ответ клиенту" />
+                <elementDefinition Id="030f5156-278d-4d8c-9128-8d09a646c48b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="dc0a69f8-7051-4404-a348-202ca9fcf59a" name="Сформировать ответ клиенту" isLeaf="false">
+            <elementDefinition Id="0c2f90bf-27af-4404-8d31-7dc44050e09d" />
+            <flowNodeTargets>
+              <controlFlow Id="ae43149d-62f4-4ff8-8572-ab025e66f4a2" isLeaf="false">
+                <activityFinalNodeMoniker Id="1c27706a-6fb7-44a4-a2e5-c39baac53419" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="c9699757-0f36-4c14-99cf-8f38f69b4a5e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode Id="1c27706a-6fb7-44a4-a2e5-c39baac53419" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="cd76939b-40a3-48f2-a306-a90d27cd071d" />
+          </activityFinalNode>
+          <opaqueAction Id="732e21c5-0761-471e-ae30-36c400d93686" name="Создать новый заказ в БД" isLeaf="false">
+            <elementDefinition Id="72de26b2-d29b-4768-b3d5-e14557dcb6a5" />
+            <flowNodeTargets>
+              <controlFlow Id="87dc87ca-6d2c-492a-a5e3-06016ce4c562" isLeaf="false">
+                <opaqueActionMoniker Id="5ed198e4-c1be-4dc0-8942-ab9b33596251" LastKnownName="Проинформировать при необходимости доступные Notification Applications" />
+                <elementDefinition Id="224811ee-b601-4682-8ff3-c06d2b13f8fd" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="5ed198e4-c1be-4dc0-8942-ab9b33596251" name="Проинформировать при необходимости доступные Notification Applications" isLeaf="false">
+            <elementDefinition Id="4130643e-a5fe-4751-bad8-b82f2f87305d" />
+            <flowNodeTargets>
+              <controlFlow Id="a4baa5e9-21dd-4843-99bf-055a5c8add91" isLeaf="false">
+                <opaqueActionMoniker Id="beaacdec-1482-4a2e-b508-c7502a88e77b" LastKnownName="Распечатать при необходимости заказ на удаленном принтере" />
+                <elementDefinition Id="f5b4b769-fae0-45f8-b568-f436189e5eb7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="beaacdec-1482-4a2e-b508-c7502a88e77b" name="Распечатать при необходимости заказ на удаленном принтере" isLeaf="false">
+            <elementDefinition Id="11b40c2c-6d40-4cd2-a9f3-2da0f513529a" />
+            <flowNodeTargets>
+              <controlFlow Id="f75450e4-e44f-46f1-969f-bff35ec53ee9" isLeaf="false">
+                <joinNodeMoniker Id="f250fba6-dd63-4b39-bee9-f60bf799e83e" LastKnownName="Join112" />
+                <elementDefinition Id="c45018e6-cb0b-44e8-a8fc-7bc36131002c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="795f9cad-75e3-4100-b099-0664e66fa333" name="Имеет ли пользователь право на редактирование списка заказов" isLeaf="false">
+            <elementDefinition Id="c86e517b-664f-4665-a938-1dc0faf43d73" />
+            <flowNodeTargets>
+              <controlFlow Id="66dd2646-e22b-434f-ac33-21de5c899a10" isLeaf="false">
+                <decisionNodeMoniker Id="43721855-0d8d-4f03-85a6-b7f5b8ad6f5c" LastKnownName="Найдена?11" />
+                <elementDefinition Id="e9d4c0cd-23ec-4574-a47e-55ecba491978" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="43721855-0d8d-4f03-85a6-b7f5b8ad6f5c" name="Найдена?11" isLeaf="false">
+            <description>Найдена?</description>
+            <elementDefinition Id="2050fe35-5732-4981-9093-e1db48413cd9" />
+            <flowNodeTargets>
+              <controlFlow Id="7eee6e9c-617e-4188-af1c-321d5df01b85" guard="-" isLeaf="false">
+                <joinNodeMoniker Id="d4fdb869-c220-4862-9c9c-d6b362f42127" LastKnownName="Join11" />
+                <elementDefinition Id="1f8f4c10-c513-472b-af8c-e9d0988fb3f9" />
+              </controlFlow>
+              <controlFlow Id="f2bd3924-59a1-438d-8ebd-cdfa63de0d66" isLeaf="false">
+                <opaqueActionMoniker Id="732e21c5-0761-471e-ae30-36c400d93686" LastKnownName="Создать новый заказ в БД" />
+                <elementDefinition Id="2fefc892-b5ef-4fb0-a503-7a57da94caa6" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="28f6e3f7-e9d2-49ef-912f-62c92beb690e" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="85e483f0-a311-4208-b103-03d960955130">
+        <profileInstance Id="7f168278-8457-48fb-90c0-dfd5193bbcb4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="2b88241a-ed3f-41a4-be00-a3525dc6e053">
+        <profileInstance Id="7815e25e-bccb-432d-bacf-42b7a3e3e82d" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

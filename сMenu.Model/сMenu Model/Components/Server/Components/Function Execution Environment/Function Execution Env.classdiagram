@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm12="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm13="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="163f4613-746d-4b96-a660-65bde24a0e15" name="Function execution env" linkedPackageId="5150b76e-6cc6-4fc7-a13a-3ef8e2a015c1" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="c4a7d5ec-eb2c-4ee5-a2b2-c1612c134fce">
+      <elementDefinition Id="40b6ad3a-242e-4541-881e-66b7d70a9bdc" />
+      <body>Данный компонент является средой выполнения функции на "сервере". Обеспечивает доступ функции к другим модулями и функциям "сервера":
+0. Доступ к БД.
+1. Доступ к сети.
+2. Доступ к статистике.</body>
+      <annotatedElements>
+        <classMoniker Id="613b749d-f3bc-4ef7-9c6e-6ab68b2c70fa" LastKnownName="CFunctionExecutionEnv" />
+      </annotatedElements>
+    </comment>
+    <comment Id="8c26203d-494c-480f-bdca-8a5918a9ad68">
+      <elementDefinition Id="a258bc06-1959-43d0-85d7-2af34760a370" />
+      <body>Интерфейс обеспечивает универсальный доступ к БД.</body>
+      <annotatedElements>
+        <interfaceMoniker Id="046561ec-ac46-4da8-8762-00040d27c807" LastKnownName="IDatabaseProvider" />
+      </annotatedElements>
+    </comment>
+    <comment Id="669cdbe3-eab1-475c-aa02-c8cedbe580ce">
+      <elementDefinition Id="7d25cf42-f284-4a47-a4c4-de1e3107b7ca" />
+      <body>Обеспечитвает универсальный доступ к внешним ресурсам, обеспечивает связь с Notification Application.</body>
+      <annotatedElements>
+        <interfaceMoniker Id="10b43b57-60c4-4d2b-9e53-a579f13fb5d4" LastKnownName="INetworkProvider" />
+      </annotatedElements>
+    </comment>
+    <comment Id="428d1381-619a-401a-b53e-ca5d672bb8d7">
+      <elementDefinition Id="2e5d24b7-37d3-4146-b67a-707d7d98cb57" />
+      <body>Обеспечивает доступ к статистике сервера
+</body>
+      <annotatedElements>
+        <interfaceMoniker Id="1610d2f4-e729-4ed3-beb3-5ec38f0f509e" LastKnownName="IStatisticsProvider" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="613b749d-f3bc-4ef7-9c6e-6ab68b2c70fa" name="CFunctionExecutionEnv" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5e4c415a-ec68-4efb-afd6-1456fb1fba22" />
+        <targetEnds>
+          <association Id="1b5193c2-bfe4-4308-9a75-e19a388391fc" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="046561ec-ac46-4da8-8762-00040d27c807" LastKnownName="IDatabaseProvider" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5f7fa1ea-d7fc-4cae-a52b-3abb5ff07ba0" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="65a15156-f5f1-4e86-9dec-0ba675cf8c1a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="37c3343a-43f2-4427-8220-b36561ee90a3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a420d419-6648-470a-b3f2-831a9ab417a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0f834899-cbd7-4c91-a8aa-d71f16bbae15" />
+          </association>
+          <association Id="267c36ed-e81c-4561-9ba3-f7e581cb3c89" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="10b43b57-60c4-4d2b-9e53-a579f13fb5d4" LastKnownName="INetworkProvider" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ae1d0717-fb94-406c-a38a-aeca4ee96797" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a1c3be1e-e9a2-4960-b63d-708da64e9638" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1c1892cc-cdef-46eb-a1e1-a4738a1603de" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d9c9ea30-a2b1-4498-aac0-55d72e26ef98" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4847fc27-87c5-447f-acb8-c02dffa74c1b" />
+          </association>
+          <association Id="01e06d35-a126-42a0-9512-85e3ffa91f94" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="1610d2f4-e729-4ed3-beb3-5ec38f0f509e" LastKnownName="IStatisticsProvider" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fc4a02c7-f50d-455e-a3f7-3d0a1a21ffb0" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c416d5b2-52e1-4498-9faf-4c17886449ba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="13fdd951-c05d-4e3a-bf10-083c5a34f167" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="48d84ad9-565c-4f1b-8420-add5a6751fea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c190cc0f-3963-482b-a62e-a0ff5e4cbfb4" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="c5843ce8-d2e3-4886-9e85-ae906c5aaa06" name="Database Provider" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6d3e8d32-27ba-473e-9946-2baf842f5fda" />
+          </property>
+          <property Id="7088102e-e825-428a-a54b-e8d3883a9880" name="Network Provider" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a952c391-3b98-4584-9e73-b7ae87d24b29" />
+          </property>
+          <property Id="aaf814bb-366f-4abf-9666-030743d308eb" name="Statistics Provider" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="30b439d8-26c7-4d1e-bcfa-9e7ba0e94713" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="046561ec-ac46-4da8-8762-00040d27c807" name="IDatabaseProvider" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="75bb5f55-2f98-4a18-8ea3-ae4d23f8cb3b" />
+        <ownedAttributes>
+          <property Id="4c2144b7-7c2a-43e9-b049-c061162f7977" name="ConnectionString" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3a89a34f-4664-4c6a-9256-92892c5dda57" />
+          </property>
+          <property Id="a2e382d0-94cb-4401-b617-dc4bc433706f" name="Database Type" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b1bb6c1a-f5aa-4cf6-94ed-abfe2b2bec38" />
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="10b43b57-60c4-4d2b-9e53-a579f13fb5d4" name="INetworkProvider" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2046ccc2-09a3-4564-8abd-4e9d60eae1f0" />
+        <ownedAttributes>
+          <property Id="e76331fb-dd7a-4220-9305-9318c9488054" name="Provider Type" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="884828ea-73b1-4caf-9ab6-b2c813e5d0f9" />
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="1610d2f4-e729-4ed3-beb3-5ec38f0f509e" name="IStatisticsProvider" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d6840aca-57aa-4029-ab30-a5fd32d10d48" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="5150b76e-6cc6-4fc7-a13a-3ef8e2a015c1" name="iMenu Model">
+    <elementDefinition Id="efc5048a-5479-4d8f-ba5c-d81b10a32906" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e58ad7fe-4d10-4976-b969-0ec1e49a198e">
+        <profileInstance Id="f676055c-67e9-46ba-8577-a86a7c6a9da4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f2cc6c58-fc67-484b-aab1-fe6315ec4676">
+        <profileInstance Id="d30eb385-4a06-4a24-87f0-0efd9a5967bb" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

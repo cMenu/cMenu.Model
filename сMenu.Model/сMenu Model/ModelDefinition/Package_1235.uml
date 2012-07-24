@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="624518d6-bc92-4400-8f6c-42c86a00e538"
+  name="Components" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6028401f-8a65-465f-a0b3-c2c8e130f7a2"
+        LastKnownName="Function Execution Environment"
+        LastKnownLocation="Package_1233.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="95ad5586-5f6d-4f09-ac66-80e7a9e21682"
+        LastKnownName="Function Execution"
+        LastKnownLocation="Package_1236.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="10625cae-c958-4c23-9007-eaa37f83cd21"
+        LastKnownName="Communication Module"
+        LastKnownLocation="Package_1237.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ba67bb4a-0986-4bfc-a589-bf9ac9a53aa7"
+        LastKnownName="Statistics"
+        LastKnownLocation="Package_1806.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c61409fd-1c9a-4f92-bc48-18d2ea4cb7d1"
+        LastKnownName="Administration"
+        LastKnownLocation="Package_1826.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
